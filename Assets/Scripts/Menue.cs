@@ -18,4 +18,8 @@ public class Menue : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void OpenNews(){
+
+	}
 }
