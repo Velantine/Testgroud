@@ -23,7 +23,7 @@ public class Menue : MonoBehaviour {
 	
 	}
 
-	public NetworkManager NetworkmanagerO;
+	/*public NetworkManager NetworkmanagerO;
 	public GameObject NetworkmanagerHUD;
 	public Text RoomName;
 	public Text PlayerName;
@@ -37,4 +37,5 @@ public class Menue : MonoBehaviour {
 		NetworkmanagerO.matchMaker.CreateMatch (RoomName.text, MatchSize, true, "", NetworkmanagerO.OnMatchCreate);
 
 	}
+	*/
 }
