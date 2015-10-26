@@ -30,7 +30,9 @@ public class NetworkMovement : NetworkBehaviour
         player = GetComponent<NetworkPlayer>();
     }
 
-    void FixedUpdate()
+
+	
+	void FixedUpdate()
     {
         if (isLocalPlayer)
         {
