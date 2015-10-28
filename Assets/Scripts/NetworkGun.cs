@@ -18,16 +18,29 @@ public class NetworkGun : NetworkBehaviour
     public GameObject PlayerParticlePrefab;
 	public AudioSource Shot;
 
+	public LineRenderer line;
+	void Start(){
+		line = GameObject.Find("Laser").GetComponent<LineRenderer>();
+		line.enabled = false;
+	}
+	
+	
+	
     [ClientCallback]
     void Update()
     {
+
 		if (Input.GetButtonDown("Fire1") && isLocalPlayer)
         {
+			line.enabled = true;
 			ShootSound();
 			var ray = new Ray(Muzzle.position, Muzzle.right);
             var hit = new RaycastHit();
 			if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)), out hit, MaxBulletDist))
             {
+				print("Hit: "+ hit.transform.position.ToString());
+				line.SetPosition(0, ray.origin);
+				line.SetPosition(1, hit.point);
                 var tag = hit.transform.tag;
                 switch (tag)
                 {
@@ -37,14 +50,25 @@ public class NetworkGun : NetworkBehaviour
                         NetworkInstanceId id = hit.transform.GetComponent<NetworkIdentity>().netId;
                         CmdShoot(id);
                         break;
+					case "Destructable":
+						//STUFF
+						break;
                     default:
                         CmdInvokeParticle(hit.transform.tag, hit.point, hit.normal);
                         break;
                 }
-            } 
+            }
+			else{
+				print("Hit Noting");
+				line.SetPosition(0, ray.origin);
+				line.SetPosition(1, Camera.main.transform.forward);
+			}
         }
-    }
-
+		if (line.enabled && !Shot.isPlaying) {
+			line.enabled = false;
+		}
+	}
+	
     [Command(channel = 1)]
     private void CmdShoot(NetworkInstanceId id)
     {
