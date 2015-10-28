@@ -7,6 +7,7 @@ public class NetworkHealth : NetworkBehaviour
 {
     [Range(0, 100)]
     public float Health = 100f;
+	public float deaths = 0f;
 
 
     //TODO: [Server]
@@ -21,4 +22,12 @@ public class NetworkHealth : NetworkBehaviour
     {
         Health = health;
     }
+
+	void Update(){
+		if(Health<=0f){
+			print("Somebody died!");
+			deaths++;
+			Health=100f;
+		}
+	}
 }

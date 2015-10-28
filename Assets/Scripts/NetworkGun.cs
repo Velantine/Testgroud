@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 [NetworkSettings(channel = 1)]
 public class NetworkGun : NetworkBehaviour
 {
+	public AudioClip[] shootGun2;
+
 
     public float MaxBulletDist = 100;
     public float WallParticleTime = 2;
@@ -21,7 +23,7 @@ public class NetworkGun : NetworkBehaviour
     {
 		if (Input.GetButtonDown("Fire1") && isLocalPlayer)
         {
-			Shot.Play();
+			ShootSound();
 			var ray = new Ray(Muzzle.position, Muzzle.right);
             var hit = new RaycastHit();
 			if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)), out hit, MaxBulletDist))
@@ -47,13 +49,13 @@ public class NetworkGun : NetworkBehaviour
     private void CmdShoot(NetworkInstanceId id)
     {
         GameObject player = NetworkServer.FindLocalObject(id);
-////        var healthScript = player.GetComponent<NetworkHealth>();
-//        if (healthScript == null)
-//        {
-//            Debug.LogError("no hleathscript attached to player");
-//            return;
-//        }
-////        healthScript.GetShot();
+        var healthScript = player.GetComponent<NetworkHealth>();
+        if (healthScript == null)
+        {
+            Debug.LogError("no hleathscript attached to player");
+            return;
+        }
+        healthScript.GetShot();
     }
 
     [Command(channel = 1)]
@@ -86,5 +88,13 @@ public class NetworkGun : NetworkBehaviour
         var particles = Instantiate(prefab, pos, Quaternion.LookRotation(normal));
         Destroy(particles, time);
     }
+
+
+	void ShootSound()
+	{
+		if (Shot.isPlaying) return;
+		Shot.clip = shootGun2[Random.Range(0,shootGun2.Length)];
+		Shot.Play();
+	}
 
 }
