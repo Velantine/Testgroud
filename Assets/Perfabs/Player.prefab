@@ -3414,7 +3414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   deaths: 0
-  RespawnB: {fileID: 139382}
+  RespawnB: {fileID: 104802}
 --- !u!114 &11442970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4626,8 +4626,8 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1154960523
+  m_SortingOrder: 1
 --- !u!223 &22370378
 Canvas:
   m_ObjectHideFlags: 1
@@ -4643,7 +4643,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1154960523
   m_SortingOrder: 0
 --- !u!224 &22409056
 RectTransform:

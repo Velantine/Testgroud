@@ -472,10 +472,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11406468, guid: 30fd7a15403af114aaec85b1a70d4667, type: 2}
-      propertyPath: line
-      value: 
-      objectReference: {fileID: 136192746}
     - target: {fileID: 11450398, guid: 30fd7a15403af114aaec85b1a70d4667, type: 2}
       propertyPath: healthSlider
       value: 
@@ -484,6 +480,10 @@ Prefab:
       propertyPath: deathCounter
       value: 
       objectReference: {fileID: 1070028890}
+    - target: {fileID: 11406468, guid: 30fd7a15403af114aaec85b1a70d4667, type: 2}
+      propertyPath: line
+      value: 
+      objectReference: {fileID: 136192746}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30fd7a15403af114aaec85b1a70d4667, type: 2}
   m_IsPrefabParent: 0
