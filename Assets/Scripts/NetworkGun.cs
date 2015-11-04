@@ -13,6 +13,8 @@ public class NetworkGun : NetworkBehaviour
     public float WallParticleTime = 2;
     public float BloodParticleTime = 2;
 
+	public float Ammunition;
+
     public Transform Muzzle;
     public GameObject WallParticlePrefab;
     public GameObject PlayerParticlePrefab;
@@ -30,8 +32,9 @@ public class NetworkGun : NetworkBehaviour
     void Update()
     {
 
-		if (Input.GetButtonDown("Fire1") && isLocalPlayer)
+		if (Input.GetButtonDown("Fire1") && isLocalPlayer && Ammunition>0)
         {
+			Ammunition=Ammunition-1;
 			line.enabled = true;
 			ShootSound();
 			var ray = new Ray(Muzzle.position, Muzzle.right);

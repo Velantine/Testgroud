@@ -13,8 +13,8 @@ public class NetworkPlayer : NetworkBehaviour
 
     [HideInInspector]
     public NetworkMovement movement;
-//    [HideInInspector]
-//    public NetworkHealth health;
+    [HideInInspector]
+    public NetworkHealth health;
 
     [HideInInspector]
     public CharacterController CharacterController;
@@ -22,7 +22,7 @@ public class NetworkPlayer : NetworkBehaviour
     void Awake()
     {
         movement = GetComponent<NetworkMovement>();
-//        health = GetComponent<NetworkHealth>();
+        health = GetComponent<NetworkHealth>();
     }
 
     void Start()

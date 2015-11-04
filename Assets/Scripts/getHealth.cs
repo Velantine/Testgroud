@@ -8,11 +8,11 @@ public class getHealth: MonoBehaviour {
 	public Slider healthSlider;
 	public Text deathCounter;
 
-	void Start(){
+	/*void Start(){
 		ThisO = this.gameObject;
 		healthSlider= GameObject.Find("HealthSlider").GetComponent<Slider>();
 		deathCounter= GameObject.Find("deathCounter").GetComponent<Text>();
-	}
+	}*/
 
 	void Update () {
 		NetworkHealth HScript = ThisO.GetComponent<NetworkHealth>();
