@@ -19,9 +19,10 @@ public class LookAt : MonoBehaviour {
 			var tag = hit.transform.tag;
 			switch(tag){
 				case "Collect":
-					if (Input.GetButton("Enter")){
+					if(Input.GetButtonDown("Enter")){
 						DestroyImmediate(hit.transform.gameObject);
 						gameObject.GetComponent<NetworkGun>().Ammunition = gameObject.GetComponent<NetworkGun>().Ammunition+AmmunitionC;
+						break;
 					}
 					break;
 				case "Vehicle":

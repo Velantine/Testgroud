@@ -3416,7 +3416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd7a621f70c2fa45b8d947892624afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dist: 20
+  Dist: 1
   AmmunitionC: 100
 --- !u!114 &11423260
 MonoBehaviour:
