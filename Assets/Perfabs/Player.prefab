@@ -3416,7 +3416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd7a621f70c2fa45b8d947892624afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dist: 1
+  Dist: 2
   AmmunitionC: 100
 --- !u!114 &11423260
 MonoBehaviour:
@@ -5063,6 +5063,14 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Dist
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: NetworkGun
+      value: 
+      objectReference: {fileID: 11406468}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122090}
