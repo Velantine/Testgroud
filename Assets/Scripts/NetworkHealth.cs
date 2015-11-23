@@ -39,6 +39,7 @@ public class NetworkHealth : NetworkBehaviour
 			deaths++;
 		}
 	}
+
 	public void Respawn(){
 		RespawnB.SetActive(false);
 		gameObject.transform.position =  GameObject.Find ("Spawn").gameObject.transform.position;

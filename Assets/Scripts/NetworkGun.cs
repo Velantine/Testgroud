@@ -41,7 +41,7 @@ public class NetworkGun : NetworkBehaviour
             var hit = new RaycastHit();
 			if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)), out hit, MaxBulletDist))
             {
-				print("Hit: "+ hit.transform.position.ToString());
+				//print("Hit: "+ hit.transform.position.ToString());
 				line.SetPosition(0, ray.origin);
 				line.SetPosition(1, hit.point);
                 var tag = hit.transform.tag;
@@ -62,13 +62,13 @@ public class NetworkGun : NetworkBehaviour
                 }
             }
 			else{
-				print("Hit Noting");
+				//print("Hit Noting");
 				line.SetPosition(0, ray.origin);
 				line.SetPosition(1, Camera.main.transform.forward);
 			}
         }
-		if (line.enabled && !Shot.isPlaying) {
-			line.enabled = false;
+		if (line.enabled) {
+			StartCoroutine (KillLine());
 		}
 	}
 	
@@ -122,6 +122,11 @@ public class NetworkGun : NetworkBehaviour
 		if (Shot.isPlaying) return;
 		Shot.clip = shootGun2[Random.Range(0,shootGun2.Length)];
 		Shot.Play();
+	}
+
+	IEnumerator KillLine(){
+		yield return new WaitForSeconds(.05f);
+		line.enabled = false;
 	}
 
 }
