@@ -7,9 +7,11 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class NetworkHealth : NetworkBehaviour
 {
     [Range(0, 100)]
-    public float Health = 100f;
+    [SyncVar]
+	public float Health = 100f;
+	[SyncVar]
 	public float deaths = 0f;
-
+	[SyncVar]
 	bool dead = false;
 	public GameObject RespawnB;
 

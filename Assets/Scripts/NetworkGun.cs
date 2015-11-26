@@ -13,6 +13,7 @@ public class NetworkGun : NetworkBehaviour
     public float WallParticleTime = 2;
     public float BloodParticleTime = 2;
 
+	[SyncVar]
 	public float Ammunition;
 
     public Transform Muzzle;
