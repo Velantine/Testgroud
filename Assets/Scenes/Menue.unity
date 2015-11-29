@@ -3771,7 +3771,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 132640048}
   m_Direction: 2
   m_Value: 1
-  m_Size: .519999981
+  m_Size: .520000041
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4730,6 +4730,48 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -12}
   m_SizeDelta: {x: 200, y: 24}
   m_Pivot: {x: .5, y: .5}
+--- !u!1001 &1592603516
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 468.127258
+      objectReference: {fileID: 0}
+    - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -82.8930054
+      objectReference: {fileID: 0}
+    - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 228.670364
+      objectReference: {fileID: 0}
+    - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 03435476966c6734b8e98c622102c73a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1594145641
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,7 +5438,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1628961408}
   m_Direction: 0
   m_Value: 0
-  m_Size: .999999762
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

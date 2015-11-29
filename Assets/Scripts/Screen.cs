@@ -28,5 +28,8 @@ public class Screen : MonoBehaviour {
 			}
 
 		}
+		if (Input.GetButtonDown ("Map")) {
+			Application.LoadLevel (1);
+		}
 	}
 }
