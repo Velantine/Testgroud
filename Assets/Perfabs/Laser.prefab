@@ -46,15 +46,17 @@ LineRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 22.6853561, y: 1.33089304, z: 18.9271755}
-  - {x: 15.1552, y: 0, z: 27.7682991}
+  - {x: 19.4564457, y: 1.45505512, z: 26.7926846}
+  - {x: .924405456, y: -.0174517669, z: -.381012112}
   m_Parameters:
     startWidth: .0500000007
     endWidth: .0500000007
@@ -76,6 +78,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 164104}

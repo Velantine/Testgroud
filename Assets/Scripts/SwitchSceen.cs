@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class SwitchSceen : MonoBehaviour {
-	public int Level;
-	// Use this for initialization
+public class SwitchSceen : NetworkBehaviour {
+	public int level;
 	public void Scene () {
-		Application.LoadLevel (Level);
+		Application.LoadLevel (level);
 	}
 }
