@@ -51,7 +51,7 @@ public class NetworkConnect : MonoBehaviour {
 		Debug.Log("Connected to server");
 		if(NetworkServer.active && myClient.isConnected){
 			Debug.Log("NetworkServer is activ");
-			Application.LoadLevel(1);
+			Application.LoadLevel(2);
 		}
 	}
 
