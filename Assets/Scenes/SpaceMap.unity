@@ -1710,6 +1710,7 @@ GameObject:
   - 124: {fileID: 1625563788}
   - 81: {fileID: 1625563787}
   - 45: {fileID: 1625563792}
+  - 114: {fileID: 1625563793}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1793,6 +1794,18 @@ Skybox:
   m_GameObject: {fileID: 1625563786}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 585fd3eefea8fea4c88e893d9f8e3355, type: 2}
+--- !u!114 &1625563793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625563786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138567b41e177df48b6cf48a2c4f32aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1704493634
 GameObject:
   m_ObjectHideFlags: 0
