@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GetPlanetInfo : MonoBehaviour {
 
 	public string planetName;
-	public string planetInfo;
+	public TextAsset planetInfo;
 	public int sceneId;
 
 	Text pName;
@@ -16,7 +16,7 @@ public class GetPlanetInfo : MonoBehaviour {
 		pInfo = GameObject.Find("PInfo").GetComponent<Text>();
 		SwitchSceen travelButtonSS = GameObject.Find("Button_Travel").GetComponent<SwitchSceen>();
 		pName.text = planetName;
-		pInfo.text = planetInfo;
+		pInfo.text = planetInfo.text;
 		travelButtonSS.level = sceneId;
 
 	}

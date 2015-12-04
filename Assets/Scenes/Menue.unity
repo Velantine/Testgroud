@@ -1052,7 +1052,7 @@ MonoBehaviour:
     m_MaxSentMessageQueueSize: 128
     m_IsAcksLong: 0
     m_Channels: []
-  m_Channels: 0500000000000000
+  m_Channels: 0200000005000000
   m_UseWebSockets: 0
   m_UseSimulator: 0
   m_SimulatedLatency: 1
@@ -3775,7 +3775,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 132640048}
   m_Direction: 2
   m_Value: 1
-  m_Size: .520000041
+  m_Size: .519999981
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4404,7 +4404,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Loading...
 --- !u!222 &1495395818
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5442,7 +5442,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1628961408}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: .999999762
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
