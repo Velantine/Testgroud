@@ -5,6 +5,7 @@ public class LookAt : MonoBehaviour {
 	public float Dist;
 	public int AmmunitionC;
 	public int HealthC;
+	public AudioSource pickUp;
 
 	
 	void Start () {
@@ -19,6 +20,7 @@ public class LookAt : MonoBehaviour {
 			switch(tag){
 				case "Collect":
 					if(Input.GetButtonDown("Enter")){
+						pickUp.Play();
 						DestroyImmediate(hit.transform.gameObject);
 						if(hit.transform.gameObject.name=="Ammo_Box"){
 							this.gameObject.GetComponent<NetworkGun>().Ammunition = gameObject.GetComponent<NetworkGun>().Ammunition+AmmunitionC;

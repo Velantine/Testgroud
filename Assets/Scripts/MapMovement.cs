@@ -7,9 +7,6 @@ public class MapMovement : NetworkBehaviour {
 	public float speed;
 	public float zoomSpeed;
 	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
 	void Update () {
