@@ -39,6 +39,9 @@ public class NetworkHealth : NetworkBehaviour
 			gameObject.GetComponent<NetworkGun>().enabled = false;
 			RespawnB.SetActive(true);
 			deaths++;
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+			GameObject.Find("Manager").GetComponent<Screen>().screenLock=false;
 		}
 	}
 
@@ -50,5 +53,8 @@ public class NetworkHealth : NetworkBehaviour
 		gameObject.GetComponent<NetworkGun>().enabled = true;
 		Health=100f;
 		dead = false;
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+		GameObject.Find("Manager").GetComponent<Screen>().screenLock=true;
 	}
 }
