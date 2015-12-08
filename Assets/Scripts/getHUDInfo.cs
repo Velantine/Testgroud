@@ -2,22 +2,17 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class getHealth: MonoBehaviour {
-	
+public class getHUDInfo : MonoBehaviour {
 	public GameObject ThisO;
 	public Slider healthSlider;
 	public Text deathCounter;
-
-	/*void Start(){
-		ThisO = this.gameObject;
-		healthSlider= GameObject.Find("HealthSlider").GetComponent<Slider>();
-		deathCounter= GameObject.Find("deathCounter").GetComponent<Text>();
-	}*/
+	public Text Ammonition;
 
 	void Update () {
 		NetworkHealth HScript = ThisO.GetComponent<NetworkHealth>();
 		healthSlider.value = HScript.Health;
+		NetworkGun GunScript = ThisO.GetComponent<NetworkGun> ();
+		Ammonition.text = GunScript.Ammunition.ToString();
 		deathCounter.text = "Deaths: " + HScript.deaths;
 	}
-
 }

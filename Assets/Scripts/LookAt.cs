@@ -6,10 +6,10 @@ public class LookAt : MonoBehaviour {
 	public int AmmunitionC;
 	public int HealthC;
 	public AudioSource pickUp;
+	public GameObject thisObj;
 
 	
 	void Start () {
-
 
 	}
 
@@ -21,17 +21,26 @@ public class LookAt : MonoBehaviour {
 				case "Collect":
 					if(Input.GetButtonDown("Enter")){
 						pickUp.Play();
-						DestroyImmediate(hit.transform.gameObject);
-						if(hit.transform.gameObject.name=="Ammo_Box"){
-							this.gameObject.GetComponent<NetworkGun>().Ammunition = gameObject.GetComponent<NetworkGun>().Ammunition+AmmunitionC;
+						if(hit.transform.gameObject.GetComponent<ObInfo>().name=="Ammo_Box"){
+							NetworkGun GunScript = thisObj.GetComponent<NetworkGun> ();
+							GunScript.Ammunition = GunScript.Ammunition+hit.transform.gameObject.GetComponent<ObInfo>().iNumber;
+							DestroyImmediate(hit.transform.gameObject);
+							break;
 						}
-						if(hit.transform.gameObject.name=="Medkit"){
-							this.gameObject.GetComponent<NetworkGun>().Ammunition = gameObject.GetComponent<NetworkGun>().Ammunition+AmmunitionC;
+						if(hit.transform.gameObject.GetComponent<ObInfo>().name=="Medkit"){
+							NetworkHealth HScript = thisObj.GetComponent<NetworkHealth> ();
+							HScript.Health = HScript.Health+hit.transform.gameObject.GetComponent<ObInfo>().iNumber;
+							DestroyImmediate(hit.transform.gameObject);
+							break;
 						}
 						break;
 					}
 					break;
 				case "Vehicle":
+					//Something
+					break;
+				case "Activate":
+					//Something
 					break;
 			}
 		}

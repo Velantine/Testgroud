@@ -3,13 +3,13 @@ using System.Collections;
 using UnityEngine.Networking;
 
 public class Screen : MonoBehaviour {
-
-	/*public bool c;
+	
 	void Start(){
-		GameObject NetMan = GameObject.Find ("Networkmanager");
-		c = NetMan.GetComponent<NetworkManagerHUD>().showGUI;
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+		screenLock=true;
 	}
-	*/
+	
 	public bool screenLock=false;
 
 	void Update () {
@@ -29,6 +29,9 @@ public class Screen : MonoBehaviour {
 
 		}
 		if (Input.GetButtonDown ("Map")) {
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+			screenLock=false;
 			Application.LoadLevel (1);
 		}
 	}
