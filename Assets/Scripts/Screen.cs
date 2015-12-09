@@ -2,33 +2,33 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class Screen : MonoBehaviour {
-	
+public class Screen : NetworkBehaviour {
+
 	void Start(){
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
 		screenLock=true;
 	}
 	
 	public bool screenLock=false;
 
 	void Update () {
-		if (Input.GetButtonDown ("Chat")) {
+		if (screenLock) {
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+		}
+		if(!screenLock){
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+		}
+		if(Input.GetButtonDown ("Chat")&&isLocalPlayer) {
 			if(screenLock==false){
-				//c=false;
-				Cursor.lockState = CursorLockMode.Locked;
-				Cursor.visible = false;
 				screenLock=true;
 			}
 			else{
-				//c = true;
-				Cursor.lockState = CursorLockMode.None;
-				Cursor.visible = true;
 				screenLock=false;
 			}
 
 		}
-		if (Input.GetButtonDown ("Map")) {
+		if (Input.GetButtonDown ("Map")&&isLocalPlayer) {
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 			screenLock=false;

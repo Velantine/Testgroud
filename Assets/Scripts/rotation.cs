@@ -2,9 +2,11 @@
 using System.Collections;
 
 public class rotation : MonoBehaviour {
-	public float add;
+	public float addX;
+	public float addY;
+	public float addZ;
 
 	void Update(){
-		transform.Rotate (0,add,0);
+		transform.Rotate (addX,addY,addZ);
 	}
 }
