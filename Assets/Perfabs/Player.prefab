@@ -392,6 +392,7 @@ GameObject:
   - 82: {fileID: 8266646}
   - 114: {fileID: 11463700}
   - 114: {fileID: 11492442}
+  - 114: {fileID: 11428858}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3588,6 +3589,10 @@ MonoBehaviour:
   HealthC: 50
   pickUp: {fileID: 8266646}
   thisObj: {fileID: 122090}
+  prefabs:
+  - {fileID: 129752, guid: 712f036329297c6499a8662417e7550f, type: 2}
+  - {fileID: 193318, guid: be60a71d98766384a8af831636a3fbff, type: 2}
+  - {fileID: 184544, guid: 59b18971e8761f74e9b409a267f1c352, type: 2}
 --- !u!114 &11423260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3621,6 +3626,26 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: You Are Dead
+--- !u!114 &11428858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &11429268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5467,6 +5492,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: prefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: line
       value: 
       objectReference: {fileID: 12009546, guid: 5468e771bc2fa174791aa6e2fb8523a8,
@@ -5503,6 +5532,18 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: prefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 129752, guid: 712f036329297c6499a8662417e7550f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 193318, guid: be60a71d98766384a8af831636a3fbff, type: 2}
+    - target: {fileID: 0}
+      propertyPath: prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 184544, guid: 59b18971e8761f74e9b409a267f1c352, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122090}

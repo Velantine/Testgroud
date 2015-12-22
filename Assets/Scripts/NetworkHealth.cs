@@ -6,13 +6,13 @@ using UnityStandardAssets.Characters.FirstPerson;
 [NetworkSettings(channel = 1)]
 public class NetworkHealth : NetworkBehaviour
 {
+	[SyncVar]
     [Range(0, 100)]
-    [SyncVar]
 	public float Health = 100f;
 	[SyncVar]
 	public float deaths = 0f;
 	[SyncVar]
-	bool dead = false;
+	public bool dead = false;
 	public GameObject RespawnB;
 
 
@@ -35,26 +35,29 @@ public class NetworkHealth : NetworkBehaviour
 			dead=true;
 			print("Somebody died!");
 			gameObject.GetComponent<Collider>().enabled = false;
-			gameObject.GetComponent<FirstPersonController>().enabled = false;
+			//gameObject.GetComponent<FirstPersonController>().enabled = false;
 			gameObject.GetComponent<NetworkGun>().enabled = false;
 			RespawnB.SetActive(true);
 			deaths++;
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
-			GameObject.Find("Manager").GetComponent<Screen>().screenLock=false;
+			gameObject.GetComponent<Screen>().screenLock=false;
+		}
+		if(Health>100){
+			Health = 100;
 		}
 	}
 
 	public void Respawn(){
 		RespawnB.SetActive(false);
-		gameObject.transform.position =  GameObject.Find ("Spawn").gameObject.transform.position;
+		//gameObject.transform.position =  GameObject.Find ("Spawn").gameObject.transform.position;
 		gameObject.GetComponent<Collider>().enabled = true;
-		gameObject.GetComponent<FirstPersonController>().enabled = true;
+		//gameObject.GetComponent<FirstPersonController>().enabled = true;
 		gameObject.GetComponent<NetworkGun>().enabled = true;
 		Health=100f;
 		dead = false;
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		GameObject.Find("Manager").GetComponent<Screen>().screenLock=true;
+		gameObject.GetComponent<Screen>().screenLock=true;
 	}
 }

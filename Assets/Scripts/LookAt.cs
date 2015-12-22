@@ -7,6 +7,7 @@ public class LookAt : MonoBehaviour {
 	public int HealthC;
 	public AudioSource pickUp;
 	public GameObject thisObj;
+	public GameObject[] prefabs;
 
 	
 	void Start () {
@@ -40,7 +41,23 @@ public class LookAt : MonoBehaviour {
 					//Something
 					break;
 				case "Activate":
-					//Something
+					if (Input.GetButtonDown ("Enter")) {
+						pickUp.Play ();
+						if (hit.transform.gameObject.GetComponent<ObInfo> ().name == "SpawnAmmo_Box") {
+							//Network.Instantiate (prefabs[0], new Vector3(hit.transform.position.x,hit.transform.position.y,hit.transform.position.z-2), transform.rotation, 0);
+							Instantiate (prefabs [0], new Vector3 (hit.transform.position.x, hit.transform.position.y, hit.transform.position.z-2), Quaternion.identity);
+							break;
+						}
+						if (hit.transform.gameObject.GetComponent<ObInfo> ().name == "SpawnMedkit") {
+							//Network.Instantiate (prefabs[1], new Vector3(hit.transform.position.x,hit.transform.position.y,hit.transform.position.z-2), transform.rotation, 0);
+							Instantiate (prefabs [1], new Vector3 (hit.transform.position.x, hit.transform.position.y, hit.transform.position.z-2), Quaternion.identity);
+							break;
+						}
+						/*if (hit.transform.gameObject.GetComponent<ObInfo> ().name == "Ship") {
+							Instantiate (prefabs [2], new Vector3 (hit.transform.position.x, hit.transform.position.y+20, hit.transform.position.z), Quaternion.identity);
+							break;
+						}*/
+					}
 					break;
 			}
 		}

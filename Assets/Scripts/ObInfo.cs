@@ -5,4 +5,5 @@ public class ObInfo : MonoBehaviour {
 	public string name;
 	public int iNumber;
 	public float fNumber;
+
 }
