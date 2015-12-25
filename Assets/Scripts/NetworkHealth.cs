@@ -50,7 +50,7 @@ public class NetworkHealth : NetworkBehaviour
 
 	public void Respawn(){
 		RespawnB.SetActive(false);
-		//gameObject.transform.position =  GameObject.Find ("Spawn").gameObject.transform.position;
+		gameObject.transform.position =  GameObject.Find ("Spawn").gameObject.transform.position;
 		gameObject.GetComponent<Collider>().enabled = true;
 		//gameObject.GetComponent<FirstPersonController>().enabled = true;
 		gameObject.GetComponent<NetworkGun>().enabled = true;
