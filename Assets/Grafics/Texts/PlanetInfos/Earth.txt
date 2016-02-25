@@ -1,9 +1,0 @@
-This is the Planet on which the Humanity lifes on.
-
-Information:
-	-Habitable: yes
-	-Oxigen: yes
-	-Life: Humans, Animals,...
-	-Gravity: 9,81m/s²
-	-Water: yes
-	
