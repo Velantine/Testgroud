@@ -14,6 +14,7 @@ public class NetworkHealth : NetworkBehaviour
 	[SyncVar]
 	public bool dead = false;
 	public GameObject RespawnB;
+	public GameObject UI;
 
 
 
@@ -38,10 +39,12 @@ public class NetworkHealth : NetworkBehaviour
 			//gameObject.GetComponent<FirstPersonController>().enabled = false;
 			gameObject.GetComponent<NetworkGun>().enabled = false;
 			RespawnB.SetActive(true);
+			UI.SetActive(false);
 			deaths++;
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 			gameObject.GetComponent<Screen>().screenLock=false;
+
 		}
 		if(Health>100){
 			Health = 100;
@@ -50,6 +53,7 @@ public class NetworkHealth : NetworkBehaviour
 
 	public void Respawn(){
 		RespawnB.SetActive(false);
+		UI.SetActive(true);
 		gameObject.transform.position =  GameObject.Find ("Spawn").gameObject.transform.position;
 		gameObject.GetComponent<Collider>().enabled = true;
 		//gameObject.GetComponent<FirstPersonController>().enabled = true;
