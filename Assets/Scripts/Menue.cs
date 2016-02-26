@@ -12,8 +12,6 @@ public class Menue : MonoBehaviour {
 
 
 	IEnumerator Start() {
-		GameObject.Find ("Options").GetComponent<AudioSource> ().volume = 0.25f;
-		GameObject.Find ("Options").GetComponent<AudioSource> ().enabled = true;
 		WWW www = new WWW(urlNews);
 		yield return www;
 		newsText.text = www.text;

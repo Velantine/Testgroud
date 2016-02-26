@@ -13,37 +13,36 @@ public class Options : MonoBehaviour {
 	[Range(-80, 20)]
 	public float musicVolume;
 
+	public bool mute;
+
 	public AudioMixer master;
 
-	//public AudioSource music;
-
-	// Use this for initialization
-	void Start () {
-		NumberUpdate ();
-		UpdateOnChange ();
-	}
-		
-	// Update is called once per frame
-	public void UpdateOnChange () {
-		master.SetFloat ("Music", musicVolume);
-		master.SetFloat ("Sound", soundVolume);
+	void Start(){
+		GameObject.Find ("Options").GetComponent<AudioSource> ().enabled = true;
 	}
 
 	void Update(){
 		if(musicVolume==-20){
 			master.SetFloat ("Music", -80f);
 		}
-		if(soundVolume==-20){
+		else if(soundVolume==-20){
 			master.SetFloat ("Sound", -80f);
 		}
 		else{
 			master.SetFloat ("Music", musicVolume);
 			master.SetFloat ("Sound", soundVolume);
 		}
+
+		if (mute == true) {
+			master.SetFloat ("Master", -80);
+		} else {
+			master.SetFloat ("Master", 0);
+		}
+
 	}
 
 	public void NumberUpdate(){
-		
+		mute = GameObject.Find ("ToggleMute").GetComponent<Toggle> ().isOn;
 		musicVolume = GameObject.Find ("SliderMusic").GetComponent<Slider> ().value;
 		soundVolume = GameObject.Find ("SliderSound").GetComponent<Slider> ().value;
 		GameObject.Find ("MusicTextNumber").GetComponent<Text> ().text = (musicVolume/10).ToString("###.0 %");
