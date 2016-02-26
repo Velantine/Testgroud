@@ -3,7 +3,8 @@ guid: 2a33021d3b7f5c440b021ad7a4c7e394
 timeCreated: 1456435282
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    8900000: generatedCubemap
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -12,25 +13,25 @@ TextureImporter:
     correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
-    mipMapFadeDistanceStart: 1
-    mipMapFadeDistanceEnd: 3
+    mipMapFadeDistanceStart: 2
+    mipMapFadeDistanceEnd: 4
   bumpmap:
     convertToNormalMap: 1
     externalNormalMap: 1
-    heightScale: 0.25
-    normalMapFilter: 0
+    heightScale: 0.3
+    normalMapFilter: 1
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
-  cubemapConvolution: 0
+  cubemapConvolution: 2
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 1
+    aniso: 16
     mipBias: -1
     wrapMode: -1
   nPOTScale: 1

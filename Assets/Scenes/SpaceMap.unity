@@ -4705,6 +4705,7 @@ GameObject:
   - 81: {fileID: 1625563787}
   - 45: {fileID: 1625563792}
   - 114: {fileID: 1625563793}
+  - 114: {fileID: 1625563794}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4808,6 +4809,17 @@ MonoBehaviour:
   - {fileID: 484178769}
   GalaxyButtons: {fileID: 1348910251}
   thisSun: 0
+--- !u!114 &1625563794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625563786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff77bbf82cb116a4382c854f92816713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1704493634
 GameObject:
   m_ObjectHideFlags: 0
