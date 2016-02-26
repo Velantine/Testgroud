@@ -3125,7 +3125,8 @@ AudioSource:
   m_GameObject: {fileID: 122090}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24360210, guid: 692f2b05951324442b044dbb7468c866,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3168,7 +3169,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3190,7 +3191,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!82 &8266646
 AudioSource:
   m_ObjectHideFlags: 1
@@ -3199,7 +3200,8 @@ AudioSource:
   m_GameObject: {fileID: 122090}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24360210, guid: 692f2b05951324442b044dbb7468c866,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 3495587bf9711ce459bcc8e755c1c95c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3242,7 +3244,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3264,7 +3266,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!82 &8294362
 AudioSource:
   m_ObjectHideFlags: 1
@@ -3718,6 +3720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   deaths: 0
+  dead: 0
   RespawnB: {fileID: 104802}
 --- !u!114 &11442970
 MonoBehaviour:
