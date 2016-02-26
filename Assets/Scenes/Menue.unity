@@ -6148,15 +6148,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 468.127258
+      value: 468.12726
       objectReference: {fileID: 0}
     - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -82.8930054
+      value: -82.893005
       objectReference: {fileID: 0}
     - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 228.670364
+      value: 228.67036
       objectReference: {fileID: 0}
     - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6176,7 +6176,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 10891778, guid: 03435476966c6734b8e98c622102c73a, type: 2}
       propertyPath: m_Shadows.m_Type
