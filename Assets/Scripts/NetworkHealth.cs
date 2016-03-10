@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.UI;
 
 [NetworkSettings(channel = 1)]
 public class NetworkHealth : NetworkBehaviour
@@ -15,6 +16,7 @@ public class NetworkHealth : NetworkBehaviour
 	public bool dead = false;
 	public GameObject RespawnB;
 	public GameObject UI;
+	public Text infoMessageText;
 
 
 
@@ -35,6 +37,7 @@ public class NetworkHealth : NetworkBehaviour
 		if(Health<=0f&&dead==false){
 			dead=true;
 			print("Somebody died!");
+			CmdDead ();
 			gameObject.GetComponent<Collider>().enabled = false;
 			//gameObject.GetComponent<FirstPersonController>().enabled = false;
 			gameObject.GetComponent<NetworkGun>().enabled = false;
@@ -64,4 +67,17 @@ public class NetworkHealth : NetworkBehaviour
 		Cursor.visible = false;
 		gameObject.GetComponent<Screen>().screenLock=true;
 	}
+
+	[Command(channel = 1)]
+	public void CmdDead(){
+		RpcDead ();
+	}
+
+	[ClientRpc(channel = 1)]
+	public void RpcDead(){
+		infoMessageText.text = (infoMessageText.text+"\r\n"+gameObject.name+" has Died!");
+	}
+
+
+
 }
