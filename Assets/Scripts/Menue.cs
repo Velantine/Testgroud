@@ -9,6 +9,7 @@ public class Menue : MonoBehaviour {
 
 	public Text newsText;
 	public string urlNews = "http://roisawesome.bplaced.net/Testbuild/news.txt";
+	public GameObject options;
 
 
 	IEnumerator Start() {
@@ -16,12 +17,24 @@ public class Menue : MonoBehaviour {
 		yield return www;
 		newsText.text = www.text;
 		DestroyImmediate (GameObject.Find ("Networkmanager"));
+
+
+		if (!GameObject.Find("Options")) {
+			Instantiate (options);
+			GameObject.Find("Options(Clone)").name="Options";
+		}
+			
 	}
 
 
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+
+	public void UpdateOptions(){
+		GameObject.Find ("Options").GetComponent<Options> ().NumberUpdate ();
 	}
 
 	/*public NetworkManager NetworkmanagerO;

@@ -662,125 +662,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 135868759}
---- !u!1 &141201288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 141201291}
-  - 82: {fileID: 141201290}
-  - 114: {fileID: 141201289}
-  m_Layer: 0
-  m_Name: Options
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &141201289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 141201288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83fab9632ba8db4ab8e2396c2350e60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundVolume: 0
-  musicVolume: 0
-  mute: 0
-  master: {fileID: 24100000, guid: 692f2b05951324442b044dbb7468c866, type: 2}
---- !u!82 &141201290
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 141201288}
-  m_Enabled: 0
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24335694, guid: 692f2b05951324442b044dbb7468c866,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: 78e57a54488727844805fd7058e11caf, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
---- !u!4 &141201291
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 141201288}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8926387, y: 7.0560994, z: 4.7164354}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
 --- !u!1 &143667885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,8 +2474,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 141201289}
-        m_MethodName: NumberUpdate
+      - m_Target: {fileID: 947946786}
+        m_MethodName: UpdateOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3042,7 +2923,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 66102425}
+        m_MethodName: PlayerNameA
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -3197,6 +3089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newsText: {fileID: 1495395817}
   urlNews: http://roisawesome.bplaced.net/Testbuild/news.txt
+  options: {fileID: 169212, guid: 142403ec0472290498efcbc78beaec32, type: 2}
 --- !u!1 &947952982
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,7 +3187,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 141201289}
+      - m_Target: {fileID: 0}
         m_MethodName: NumberUpdate
         m_Mode: 1
         m_Arguments:
@@ -4577,8 +4470,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 141201289}
-        m_MethodName: NumberUpdate
+      - m_Target: {fileID: 947946786}
+        m_MethodName: UpdateOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4951,8 +4844,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 132640049}
   m_HandleRect: {fileID: 132640048}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.52000004
+  m_Value: 0.99999976
+  m_Size: 0.52
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6176,7 +6069,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 491262, guid: 03435476966c6734b8e98c622102c73a, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 10891778, guid: 03435476966c6734b8e98c622102c73a, type: 2}
       propertyPath: m_Shadows.m_Type
@@ -6757,8 +6650,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 141201289}
-        m_MethodName: NumberUpdate
+      - m_Target: {fileID: 947946786}
+        m_MethodName: UpdateOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7257,8 +7150,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1628961409}
   m_HandleRect: {fileID: 1628961408}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.9999998
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

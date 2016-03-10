@@ -23,6 +23,11 @@ public class NetworkPlayer : NetworkBehaviour
     {
         movement = GetComponent<NetworkMovement>();
         health = GetComponent<NetworkHealth>();
+		if (!String.Equals(GameObject.Find ("Options").GetComponent<Options> ().name, "")) {
+			gameObject.name = GameObject.Find("Options").GetComponent<Options>().name;
+		} else {
+			gameObject.name ="Player";
+		}
     }
 
     void Start()

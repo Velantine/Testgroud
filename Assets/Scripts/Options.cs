@@ -16,9 +16,10 @@ public class Options : MonoBehaviour {
 	public bool mute;
 
 	public AudioMixer master;
+	public string name;
 
 	void Start(){
-		GameObject.Find ("Options").GetComponent<AudioSource> ().enabled = true;
+		gameObject.GetComponent<AudioSource> ().enabled = true;
 	}
 
 	void Update(){

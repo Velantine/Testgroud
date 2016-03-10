@@ -60,4 +60,10 @@ public class NetworkConnect : MonoBehaviour {
 		Debug.Log("Disconnected from server");
 		Application.LoadLevel(0);
 	}
+
+
+	public void PlayerNameA(){
+		GameObject.Find ("Options").GetComponent<Options> ().name = PlayerName.text;
+	}
 }
+
