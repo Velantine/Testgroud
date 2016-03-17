@@ -19,19 +19,24 @@ public class Menue : MonoBehaviour {
 		DestroyImmediate (GameObject.Find ("Networkmanager"));
 
 
-		if (!GameObject.Find("Options")) {
+		if (!GameObject.Find ("Options")) {
 			Instantiate (options);
-			GameObject.Find("Options(Clone)").name="Options";
+			GameObject.Find ("Options(Clone)").name = "Options";
+			if (Application.isEditor){
+				GameObject.Find ("Options").GetComponent<AudioSource> ().enabled = false;
+			}
 		}
+
 			
 	}
+	
 
 
 	// Update is called once per frame
 	void Update () {
 	
 	}
-
+		
 
 	public void UpdateOptions(){
 		GameObject.Find ("Options").GetComponent<Options> ().NumberUpdate ();

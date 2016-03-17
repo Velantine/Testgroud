@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
+[NetworkSettings(channel = 1)]
 public class LookAt : NetworkBehaviour {
 	public float Dist;
 	public int AmmunitionC;
@@ -9,10 +10,11 @@ public class LookAt : NetworkBehaviour {
 	public AudioSource pickUp;
 	public GameObject thisObj;
 	public GameObject[] prefabs;
+	public bool siting;
 
 	
 	void Start () {
-
+		siting=false;
 	}
 
 	void Update () {
@@ -21,7 +23,7 @@ public class LookAt : NetworkBehaviour {
 			var tag = hit.transform.tag;
 			switch(tag){
 				case "Collect":
-					if(Input.GetButtonDown("Enter")){
+				if(Input.GetButtonDown("Enter")&&isLocalPlayer){
 						pickUp.Play();
 						if(hit.transform.gameObject.GetComponent<ObInfo>().name=="Ammo_Box"){
 							NetworkGun GunScript = thisObj.GetComponent<NetworkGun> ();
@@ -42,7 +44,7 @@ public class LookAt : NetworkBehaviour {
 					//Something
 					break;
 			case "Activate":
-				if (Input.GetButtonDown ("Enter")) {
+				if (Input.GetButtonDown ("Enter")&&isLocalPlayer) {
 					pickUp.Play ();
 					if (hit.transform.gameObject.GetComponent<ObInfo> ().name == "SpawnAmmo_Box") {
 						//GameObject ammoBox = (GameObject)Instantiate (prefabs [0], new Vector3 (hit.transform.position.x, hit.transform.position.y, hit.transform.position.z-2), Quaternion.identity);
@@ -59,11 +61,23 @@ public class LookAt : NetworkBehaviour {
 						
 					}
 					break;
+			case "Sit":
+				if (Input.GetButtonDown ("Enter")&&isLocalPlayer) {
+					this.gameObject.transform.SetParent (hit.transform);
+					siting = true;
+					s (2);
+					break;
+				}
+				break;
 							}
+		}
+		if (siting&&Input.GetButtonDown("Enter")&&isLocalPlayer) {
+			this.gameObject.transform.SetParent(GameObject.Find("World").transform);
+			siting = false;
 		}
 	}
 
-	[Command]
+	[Command(channel=1)]
 	void CmdSpawn(int pre, GameObject pos){
 		if (isLocalPlayer) {
 			GameObject objectToSpawn = (GameObject)Instantiate (prefabs [pre], new Vector3 (pos.transform.position.x, pos.transform.position.y, pos.transform.position.z - 2), Quaternion.identity);
@@ -72,5 +86,9 @@ public class LookAt : NetworkBehaviour {
 			GameObject objectToSpawn = (GameObject)Instantiate (prefabs [pre], gameObject.transform.position, Quaternion.identity);
 			NetworkServer.Spawn(objectToSpawn);
 		}
+	}
+
+	IEnumerator s(float time){
+		yield return new WaitForSeconds (time);
 	}
 }
