@@ -4284,6 +4284,7 @@ MonoBehaviour:
   PlayerParticlePrefab: {fileID: 103210, guid: aa50cce84ec328b4f837bfefe6cc0fd5, type: 2}
   lightprefab: {fileID: 153434, guid: c24b3c0c282e7c04dab0d38aa549cf8e, type: 2}
   Shot: {fileID: 8210936}
+  fireRate: 0.1
   line: {fileID: 12009546, guid: 5468e771bc2fa174791aa6e2fb8523a8, type: 2}
 --- !u!114 &11410660
 MonoBehaviour:
@@ -4487,6 +4488,7 @@ MonoBehaviour:
   - {fileID: 193318, guid: be60a71d98766384a8af831636a3fbff, type: 2}
   - {fileID: 184544, guid: 59b18971e8761f74e9b409a267f1c352, type: 2}
   siting: 0
+  cSit: 0
 --- !u!114 &11423260
 MonoBehaviour:
   m_ObjectHideFlags: 1

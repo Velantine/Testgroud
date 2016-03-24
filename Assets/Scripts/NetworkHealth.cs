@@ -44,15 +44,14 @@ public class NetworkHealth : NetworkBehaviour
 			dead=true;
 			print("Somebody died!");
 			CmdDead ();
-			gameObject.GetComponent<Collider>().enabled = false;
+			GameObject player = NetworkServer.FindLocalObject(gameObject.GetComponent<NetworkIdentity>().netId);
+			player.GetComponent<Collider>().enabled = false;
 			//gameObject.GetComponent<FirstPersonController>().enabled = false;
-			gameObject.GetComponent<NetworkGun>().enabled = false;
+			player.GetComponent<NetworkGun>().enabled = false;
 			RespawnB.SetActive(true);
 			UI.SetActive(false);
 			deaths++;
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
-			gameObject.GetComponent<Screen>().screenLock=false;
+			player.GetComponent<Screen>().screenLock=false;
 
 		}
 		if(Health>100){
@@ -61,17 +60,17 @@ public class NetworkHealth : NetworkBehaviour
 	}
 
 	public void Respawn(){
+		GameObject player = NetworkServer.FindLocalObject(gameObject.GetComponent<NetworkIdentity>().netId);
 		RespawnB.SetActive(false);
 		UI.SetActive(true);
-		gameObject.transform.position =  GameObject.Find ("Spawn").gameObject.transform.position;
-		gameObject.GetComponent<Collider>().enabled = true;
+		player.transform.position =  GameObject.Find ("Spawn").gameObject.transform.position;
+		player.GetComponent<Collider>().enabled = true;
 		//gameObject.GetComponent<FirstPersonController>().enabled = true;
-		gameObject.GetComponent<NetworkGun>().enabled = true;
+		player.GetComponent<NetworkGun>().enabled = true;
 		Health=100f;
+		RpcUpdateHealth (Health);
 		dead = false;
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
-		gameObject.GetComponent<Screen>().screenLock=true;
+		player.GetComponent<Screen>().screenLock=true;
 	}
 
 	[Command(channel = 1)]

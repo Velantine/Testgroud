@@ -21,8 +21,11 @@ public class NetworkGun : NetworkBehaviour
     public GameObject PlayerParticlePrefab;
 	public GameObject lightprefab;
 	public AudioSource Shot;
+	public float fireRate;
+	private float nextFire;
 
 	public LineRenderer line;
+
 	void Start(){
 		line = GameObject.Find("Laser").GetComponent<LineRenderer>();
 		line.enabled = false;
@@ -34,8 +37,9 @@ public class NetworkGun : NetworkBehaviour
     void Update()
     {
 
-		if (Input.GetButtonDown("Fire1") && isLocalPlayer && Ammunition>0)
+		if (Input.GetButton("Fire1") && isLocalPlayer && Ammunition>0&&Time.time>nextFire)
         {
+			nextFire = Time.time + fireRate;
 			Ammunition=Ammunition-1;
 			line.enabled = true;
 			ShootSound();
@@ -54,7 +58,7 @@ public class NetworkGun : NetworkBehaviour
                         CmdInvokeParticle(hit.transform.tag, hit.point, hit.normal);
                         NetworkInstanceId id = hit.transform.GetComponent<NetworkIdentity>().netId;
                         CmdShoot(id);
-                        break;
+						break;
 					case "Destructable":
 						//STUFF
 						break;
@@ -139,7 +143,6 @@ public class NetworkGun : NetworkBehaviour
 
 	void ShootSound()
 	{
-		if (Shot.isPlaying) return;
 		Shot.clip = shootGun2[Random.Range(0,shootGun2.Length)];
 		Shot.Play();
 	}

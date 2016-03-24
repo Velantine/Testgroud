@@ -3194,7 +3194,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1995172917}
         m_MethodName: PlayerNameA
         m_Mode: 1
         m_Arguments:

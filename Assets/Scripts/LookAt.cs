@@ -11,10 +11,12 @@ public class LookAt : NetworkBehaviour {
 	public GameObject thisObj;
 	public GameObject[] prefabs;
 	public bool siting;
+	public bool cSit;
 
 	
 	void Start () {
 		siting=false;
+		cSit = false;
 	}
 
 	void Update () {
@@ -66,17 +68,26 @@ public class LookAt : NetworkBehaviour {
 				if (Input.GetButtonDown ("Enter")&&isLocalPlayer) {
 					this.gameObject.transform.SetParent (hit.transform);
 					siting = true;
-					s (2);
+					StartCoroutine( Wait (2));
 					break;
 				}
 				break;
 							}
 		}
-		if (siting&&Input.GetButtonDown("Enter")&&isLocalPlayer) {
+		if (siting&&Input.GetButtonDown("Enter")&&isLocalPlayer&&cSit) {
 			this.gameObject.transform.SetParent(GameObject.Find("World").transform);
 			siting = false;
+			cSit = false;
 		}
 	}
+
+
+
+	IEnumerator Wait(float sec){
+		yield return new WaitForSeconds (sec);
+		cSit = true;
+	}
+
 
 	[Command(channel=1)]
 	void CmdSpawn(int pre, Vector3 pos){
@@ -91,10 +102,6 @@ public class LookAt : NetworkBehaviour {
 
 	void SpawnOb(int pre, Vector3 pos){
 		var sobject = (GameObject)Instantiate (prefabs [pre], pos, Quaternion.identity);
-	}
-
-	IEnumerator s(float time){
-		yield return new WaitForSeconds (time);
 	}
 
 	void CmdHeal(NetworkInstanceId id, Transform hit){
