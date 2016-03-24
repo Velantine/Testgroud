@@ -8,58 +8,34 @@ public class NetworkConnect : MonoBehaviour {
 	
 	NetworkClient myClient;
 	public Text PlayerName;
-	public Text IP;
-	public Text TPort;
+	public Text roomName;
 	public Transform playerPrefab;
-
-	void Start()
-	{
-
-	}
-
-	public void SetupServer()
-	{
-		NetworkServer.Listen(int.Parse(TPort.text));
-	}
-	
-	// Create a client and connect to the server port
-	public void SetupClient()
-	{
-		myClient = new NetworkClient();
-		myClient.RegisterHandler(MsgType.Connect, OnConnected);     
-		myClient.Connect(IP.text, int.Parse(TPort.text));
-	}
-	
-	// Create a local client and connect to the local server
-	public void SetupLocalClient()
-	{
-		myClient = ClientScene.ConnectLocalServer();
-		myClient.RegisterHandler(MsgType.Connect, OnConnected);     
-	}
+	public NetworkManager manager;
 
 
-	public void CreateAndConnect()
+	void Awake()
 	{
-		SetupServer();
-		SetupLocalClient();
+		manager.StartMatchMaker();
+
 	}
 
 
 
-	public void OnConnected(NetworkMessage netMsg)
+	public void Connect()
 	{
-		Debug.Log("Connected to server");
-		if(NetworkServer.active && myClient.isConnected){
-			Debug.Log("NetworkServer is activ");
-			Application.LoadLevel(2);
-		}
+		manager.matchMaker.ListMatches(0,20, roomName.text, manager.OnMatchList);
+
 	}
 
-	public void OnDisconnect(NetworkMessage netMsg)
-	{
-		Debug.Log("Disconnected from server");
-		Application.LoadLevel(0);
+
+
+
+	public void CreateConnect(){
+		manager.StartMatchMaker();
+		manager.matchMaker.CreateMatch(roomName.text, 20, true, "", manager.OnMatchCreate);
 	}
+
+
 
 
 	public void PlayerNameA(){
