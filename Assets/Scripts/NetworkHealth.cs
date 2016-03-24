@@ -26,6 +26,12 @@ public class NetworkHealth : NetworkBehaviour
         Health -= 20;
         RpcUpdateHealth(Health);
     }
+	//TODO: [Server]
+	public void GetHeald (float healing){
+		Health += healing;
+		RpcUpdateHealth (Health);
+	}
+
 
     [ClientRpc(channel = 1)]
     private void RpcUpdateHealth(float health)

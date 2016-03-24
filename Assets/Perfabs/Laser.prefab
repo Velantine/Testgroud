@@ -49,17 +49,17 @@ LineRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
+  m_LightmapParameters: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 19.4564457, y: 1.45505512, z: 26.7926846}
-  - {x: .924405456, y: -.0174517669, z: -.381012112}
+  - {x: 19.456446, y: 1.4550551, z: 26.792685}
+  - {x: 0.92440546, y: -0.017451767, z: -0.3810121}
   m_Parameters:
-    startWidth: .0500000007
-    endWidth: .0500000007
+    startWidth: 0.05
+    endWidth: 0.05
     m_StartColor:
       serializedVersion: 2
       rgba: 4278190335

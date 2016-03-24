@@ -19,6 +19,7 @@ public class NetworkGun : NetworkBehaviour
     public Transform Muzzle;
     public GameObject WallParticlePrefab;
     public GameObject PlayerParticlePrefab;
+	public GameObject lightprefab;
 	public AudioSource Shot;
 
 	public LineRenderer line;
@@ -86,6 +87,22 @@ public class NetworkGun : NetworkBehaviour
         healthScript.GetShot();
     }
 
+	//TODO: [Server]
+	public void GetAmmo (float ammocount){
+		Ammunition+=ammocount;
+		RpcUpdateAmmo (Ammunition);
+	}
+
+
+	[ClientRpc(channel = 1)]
+	private void RpcUpdateAmmo(float ammo)
+	{
+		Ammunition=ammo;
+	}
+
+
+
+
     [Command(channel = 1)]
     private void CmdInvokeParticle(string mat, Vector3 pos, Vector3 normal)
     {
@@ -114,7 +131,9 @@ public class NetworkGun : NetworkBehaviour
     public void ShowParticles(GameObject prefab, Vector3 pos, Vector3 normal, float time)
     {
         var particles = Instantiate(prefab, pos, Quaternion.LookRotation(normal));
+		var lightEffect = Instantiate (lightprefab, pos, Quaternion.LookRotation (normal));
         Destroy(particles, time);
+		Destroy (lightEffect, .05f);
     }
 
 

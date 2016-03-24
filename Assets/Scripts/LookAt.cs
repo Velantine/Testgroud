@@ -26,6 +26,7 @@ public class LookAt : NetworkBehaviour {
 				if(Input.GetButtonDown("Enter")&&isLocalPlayer){
 						pickUp.Play();
 						if(hit.transform.gameObject.GetComponent<ObInfo>().name=="Ammo_Box"){
+							NetworkInstanceId id = gameObject.GetComponent<NetworkIdentity>().netId;
 							NetworkGun GunScript = thisObj.GetComponent<NetworkGun> ();
 							GunScript.Ammunition = GunScript.Ammunition+hit.transform.gameObject.GetComponent<ObInfo>().iNumber;
 							DestroyImmediate(hit.transform.gameObject);
@@ -49,12 +50,12 @@ public class LookAt : NetworkBehaviour {
 					if (hit.transform.gameObject.GetComponent<ObInfo> ().name == "SpawnAmmo_Box") {
 						//GameObject ammoBox = (GameObject)Instantiate (prefabs [0], new Vector3 (hit.transform.position.x, hit.transform.position.y, hit.transform.position.z-2), Quaternion.identity);
 						//NetworkServer.Spawn(ammoBox);
-						CmdSpawn (0, hit.transform.gameObject);
+						CmdSpawn (0, hit.point);
 						break;
 					}
 					if (hit.transform.gameObject.GetComponent<ObInfo> ().name == "SpawnMedkit") {
 						//Network.Instantiate (prefabs[1], new Vector3(hit.transform.position.x,hit.transform.position.y,hit.transform.position.z-2), transform.rotation, 0);
-						CmdSpawn (1, hit.transform.gameObject);
+						CmdSpawn (1, hit.point);
 						break;
 					}
 						//if(){}
@@ -78,17 +79,33 @@ public class LookAt : NetworkBehaviour {
 	}
 
 	[Command(channel=1)]
-	void CmdSpawn(int pre, GameObject pos){
-		if (isLocalPlayer) {
-			GameObject objectToSpawn = (GameObject)Instantiate (prefabs [pre], new Vector3 (pos.transform.position.x, pos.transform.position.y, pos.transform.position.z - 2), Quaternion.identity);
-			NetworkServer.Spawn(objectToSpawn);
-		} else {
-			GameObject objectToSpawn = (GameObject)Instantiate (prefabs [pre], gameObject.transform.position, Quaternion.identity);
-			NetworkServer.Spawn(objectToSpawn);
-		}
+	void CmdSpawn(int pre, Vector3 pos){
+		RpcSpawn (pre, pos);
+	}
+
+	[ClientRpc(channel = 1)]
+	private void RpcSpawn(int objectToSpawn, Vector3 pos)
+	{
+		SpawnOb (objectToSpawn, pos);
+	}
+
+	void SpawnOb(int pre, Vector3 pos){
+		var sobject = (GameObject)Instantiate (prefabs [pre], pos, Quaternion.identity);
 	}
 
 	IEnumerator s(float time){
 		yield return new WaitForSeconds (time);
+	}
+
+	void CmdHeal(NetworkInstanceId id, Transform hit){
+		GameObject player = NetworkServer.FindLocalObject(id);
+		var healthScript = player.GetComponent<NetworkHealth>();
+		healthScript.GetHeald(hit.gameObject.GetComponent<ObInfo>().iNumber);
+	}
+
+	void CmdAmmo(NetworkInstanceId id, Transform hit){
+		GameObject player = NetworkServer.FindLocalObject(id);
+		var gunScript = player.GetComponent<NetworkGun>();
+		gunScript.GetAmmo(hit.gameObject.GetComponent<ObInfo>().iNumber);
 	}
 }
