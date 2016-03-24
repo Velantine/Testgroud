@@ -2910,7 +2910,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 556.96124, y: 394.14352, z: -695.7328}
+  m_LocalPosition: {x: 586.6621, y: 593.0599, z: -823.02686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 489566}
@@ -4485,6 +4485,7 @@ MonoBehaviour:
   - {fileID: 129752, guid: 712f036329297c6499a8662417e7550f, type: 2}
   - {fileID: 193318, guid: be60a71d98766384a8af831636a3fbff, type: 2}
   - {fileID: 184544, guid: 59b18971e8761f74e9b409a267f1c352, type: 2}
+  siting: 0
 --- !u!114 &11423260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4956,8 +4957,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11444644}
   m_HandleRect: {fileID: 22444592}
   m_Direction: 2
-  m_Value: 0.8767067
-  m_Size: 0.6099803
+  m_Value: 1
+  m_Size: 0.60989994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5207,7 +5208,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11499654}
   m_HandleRect: {fileID: 22452744}
   m_Direction: 0
-  m_Value: 0.35142595
+  m_Value: 1
   m_Size: 0.9999094
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7504,7 +7505,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0226143, y: 14.399353}
+  m_AnchoredPosition: {x: -0.023583055, y: -0.040985107}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22411910
