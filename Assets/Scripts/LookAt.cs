@@ -12,11 +12,14 @@ public class LookAt : NetworkBehaviour {
 	public GameObject[] prefabs;
 	public bool siting;
 	public bool cSit;
+	public Transform weaponSpot;
+	Options opt;
 
 	
 	void Start () {
 		siting=false;
 		cSit = false;
+		opt = GameObject.Find ("Options").GetComponent<Options> ();
 	}
 
 	void Update () {
@@ -27,14 +30,14 @@ public class LookAt : NetworkBehaviour {
 				case "Collect":
 				if(Input.GetButtonDown("Enter")&&isLocalPlayer){
 						pickUp.Play();
-						if(hit.transform.gameObject.GetComponent<ObInfo>().name=="Ammo_Box"){
+						if(hit.transform.gameObject.GetComponent<ObInfo>().obname=="Ammo_Box"){
 							NetworkInstanceId id = gameObject.GetComponent<NetworkIdentity>().netId;
 							NetworkGun GunScript = thisObj.GetComponent<NetworkGun> ();
 							GunScript.Ammunition = GunScript.Ammunition+hit.transform.gameObject.GetComponent<ObInfo>().iNumber;
 							DestroyImmediate(hit.transform.gameObject);
 							break;
 						}
-						if(hit.transform.gameObject.GetComponent<ObInfo>().name=="Medkit"){
+						if(hit.transform.gameObject.GetComponent<ObInfo>().obname=="Medkit"){
 							NetworkHealth HScript = thisObj.GetComponent<NetworkHealth> ();
 							HScript.Health = HScript.Health+hit.transform.gameObject.GetComponent<ObInfo>().iNumber;
 							DestroyImmediate(hit.transform.gameObject);
@@ -49,18 +52,32 @@ public class LookAt : NetworkBehaviour {
 			case "Activate":
 				if (Input.GetButtonDown ("Enter")&&isLocalPlayer) {
 					pickUp.Play ();
-					if (hit.transform.gameObject.GetComponent<ObInfo> ().name == "SpawnAmmo_Box") {
+					if (hit.transform.gameObject.GetComponent<ObInfo> ().obname == "SpawnAmmo_Box") {
 						//GameObject ammoBox = (GameObject)Instantiate (prefabs [0], new Vector3 (hit.transform.position.x, hit.transform.position.y, hit.transform.position.z-2), Quaternion.identity);
 						//NetworkServer.Spawn(ammoBox);
 						CmdSpawn (0, hit.point);
 						break;
 					}
-					if (hit.transform.gameObject.GetComponent<ObInfo> ().name == "SpawnMedkit") {
+					if (hit.transform.gameObject.GetComponent<ObInfo> ().obname == "SpawnMedkit") {
 						//Network.Instantiate (prefabs[1], new Vector3(hit.transform.position.x,hit.transform.position.y,hit.transform.position.z-2), transform.rotation, 0);
 						CmdSpawn (1, hit.point);
 						break;
 					}
-						//if(){}
+					if(hit.transform.gameObject.GetComponent<ObInfo>().obname=="SwitchWeapon"){
+						if (opt.weapon == (opt.weapons.Length-1)) {
+							opt.weapon=0;
+						} 
+						else {
+							opt.weapon++;
+						}
+						Destroy (GetComponentInChildren<WeaponInfo> ().gameObject);
+						GameObject weaponO = Instantiate (opt.weapons [opt.weapon], weaponSpot.position, Quaternion.identity)as GameObject;
+						weaponO.transform.SetParent (GetComponentInChildren<Camera>().gameObject.transform);
+						weaponO.transform.rotation=Quaternion.Euler(270,0,90);
+						StartCoroutine (WaitW(1));
+						break;
+					}
+					break;
 						
 					}
 					break;
@@ -86,6 +103,10 @@ public class LookAt : NetworkBehaviour {
 	IEnumerator Wait(float sec){
 		yield return new WaitForSeconds (sec);
 		cSit = true;
+	}
+	IEnumerator WaitW(float sec){
+		yield return new WaitForSeconds (sec);
+		gameObject.GetComponent<NetworkGun> ().WeaponUpdateInfo ();
 	}
 
 

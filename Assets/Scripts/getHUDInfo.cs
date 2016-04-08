@@ -11,7 +11,7 @@ public class getHUDInfo : MonoBehaviour {
 	void Update () {
 		NetworkHealth HScript = ThisO.GetComponent<NetworkHealth>();
 		healthSlider.value = HScript.Health;
-		NetworkGun GunScript = ThisO.GetComponent<NetworkGun> ();
+		NetworkGun GunScript = ThisO.GetComponentInChildren<NetworkGun> ();
 		Ammonition.text = GunScript.Ammunition.ToString();
 		deathCounter.text = "Deaths: " + HScript.deaths;
 	}

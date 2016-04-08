@@ -11,6 +11,7 @@ public class NetworkConnect : MonoBehaviour {
 	public Text roomName;
 	public Transform playerPrefab;
 	public NetworkManager manager;
+	public Dropdown weapon;
 
 
 	void Awake()
@@ -40,6 +41,10 @@ public class NetworkConnect : MonoBehaviour {
 
 	public void PlayerNameA(){
 		GameObject.Find ("Options").GetComponent<Options> ().name = PlayerName.text;
+	}
+
+	public void WeaponSelect(){
+		GameObject.Find ("Options").GetComponent<Options> ().weapon = weapon.value;
 	}
 }
 

@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 496716}
   - 82: {fileID: 8245216}
   - 114: {fileID: 11433108}
+  - 114: {fileID: 11431346}
   m_Layer: 0
   m_Name: Options
   m_TagString: Untagged
@@ -104,6 +105,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &11431346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 20
+    i1: 36
+    i2: 3
+    i3: 236
+    i4: 4
+    i5: 114
+    i6: 41
+    i7: 4
+    i8: 152
+    i9: 239
+    i10: 203
+    i11: 199
+    i12: 139
+    i13: 234
+    i14: 236
+    i15: 50
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &11433108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,6 +153,10 @@ MonoBehaviour:
   mute: 0
   master: {fileID: 24100000, guid: 692f2b05951324442b044dbb7468c866, type: 2}
   name: 
+  weapon: 0
+  weapons:
+  - {fileID: 111486, guid: 69914191eb19f4b48bb117c7bb53e44f, type: 2}
+  - {fileID: 125806, guid: 930feb14cb256bc40a18329b701dcc4a, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -550,6 +550,52 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 445774, guid: 712f036329297c6499a8662417e7550f, type: 2}
   m_PrefabInternal: {fileID: 2010223039}
+--- !u!1001 &852027521
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 257559365}
+    m_Modifications:
+    - target: {fileID: 436458, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.33754873
+      objectReference: {fileID: 0}
+    - target: {fileID: 436458, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.2517703
+      objectReference: {fileID: 0}
+    - target: {fileID: 436458, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.40406936
+      objectReference: {fileID: 0}
+    - target: {fileID: 436458, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436458, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436458, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436458, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 436458, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6579562, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &857622332
 Prefab:
   m_ObjectHideFlags: 0
@@ -642,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc05b5dd63bfaa4ea417995d3566d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Ship
+  obname: SwitchWeapon
   iNumber: 0
   fNumber: 0
 --- !u!23 &1092673376
@@ -936,7 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc05b5dd63bfaa4ea417995d3566d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  obname: Sit
   iNumber: 0
   fNumber: 0
 --- !u!23 &1282118783
@@ -1322,7 +1368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc05b5dd63bfaa4ea417995d3566d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: SpawnMedkit
+  obname: SpawnMedkit
   iNumber: 0
   fNumber: 0
 --- !u!23 &1774319300
@@ -1373,8 +1419,8 @@ MeshFilter:
 --- !u!1 &1805402790
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 106836, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+  m_PrefabInternal: {fileID: 852027521}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1805402791}
@@ -1392,8 +1438,8 @@ GameObject:
 --- !u!4 &1805402791
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 436458, guid: 10cc271cafa217a4ea7f55e58cd2a02b, type: 2}
+  m_PrefabInternal: {fileID: 852027521}
   m_GameObject: {fileID: 1805402790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.33754873, y: 0.2517703, z: -0.40406936}
@@ -1404,8 +1450,9 @@ Transform:
 --- !u!23 &1805402792
 MeshRenderer:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 2321478, guid: 10cc271cafa217a4ea7f55e58cd2a02b,
+    type: 2}
+  m_PrefabInternal: {fileID: 852027521}
   m_GameObject: {fileID: 1805402790}
   m_Enabled: 1
   m_CastShadows: 1
@@ -1430,8 +1477,9 @@ MeshRenderer:
 --- !u!65 &1805402793
 BoxCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 6579562, guid: 10cc271cafa217a4ea7f55e58cd2a02b,
+    type: 2}
+  m_PrefabInternal: {fileID: 852027521}
   m_GameObject: {fileID: 1805402790}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1442,22 +1490,24 @@ BoxCollider:
 --- !u!33 &1805402794
 MeshFilter:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 3372678, guid: 10cc271cafa217a4ea7f55e58cd2a02b,
+    type: 2}
+  m_PrefabInternal: {fileID: 852027521}
   m_GameObject: {fileID: 1805402790}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1805402795
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11492754, guid: 10cc271cafa217a4ea7f55e58cd2a02b,
+    type: 2}
+  m_PrefabInternal: {fileID: 852027521}
   m_GameObject: {fileID: 1805402790}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbc05b5dd63bfaa4ea417995d3566d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: SpawnAmmo_Box
+  obname: SpawnAmmo_Box
   iNumber: 0
   fNumber: 0
 --- !u!1 &1956753471

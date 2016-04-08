@@ -2,33 +2,42 @@
 using System.Collections;
 using System.Security.Policy;
 using UnityEngine.Networking;
+using UnityEngine.Audio;
 
 [NetworkSettings(channel = 1)]
 public class NetworkGun : NetworkBehaviour
 {
-	public AudioClip[] shootGun2;
+	public AudioClip[] shootAudio;
+	public AudioMixerGroup amg;
 
 
-    public float MaxBulletDist = 100;
+	private float MaxBulletDist = 100;
     public float WallParticleTime = 2;
     public float BloodParticleTime = 2;
 
 	[SyncVar]
 	public float Ammunition;
 
-    public Transform Muzzle;
+	private Transform Muzzle;
     public GameObject WallParticlePrefab;
     public GameObject PlayerParticlePrefab;
 	public GameObject lightprefab;
-	public AudioSource Shot;
-	public float fireRate;
+	public float projectileDelTime;
+	private float fireRate;
 	private float nextFire;
+	private bool projectile;
+	private GameObject projectilePrefab;
+	private float speed;
 
+	[SerializeField]public WeaponInfo WI;
 	public LineRenderer line;
 
 	void Start(){
 		line = GameObject.Find("Laser").GetComponent<LineRenderer>();
 		line.enabled = false;
+
+		WeaponUpdateInfo ();
+
 	}
 	
 	
@@ -36,19 +45,19 @@ public class NetworkGun : NetworkBehaviour
     [ClientCallback]
     void Update()
     {
-
-		if (Input.GetButton("Fire1") && isLocalPlayer && Ammunition>0&&Time.time>nextFire)
+		//Laser
+		if (Input.GetButton("Fire1")&&isLocalPlayer&&Ammunition>0&&Time.time>nextFire&&!projectile)
         {
 			nextFire = Time.time + fireRate;
 			Ammunition=Ammunition-1;
 			line.enabled = true;
 			ShootSound();
-			var ray = new Ray(Muzzle.position, Muzzle.right);
+			//var ray = new Ray(Muzzle.position, Muzzle.right);
             var hit = new RaycastHit();
 			if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)), out hit, MaxBulletDist))
             {
 				//print("Hit: "+ hit.transform.position.ToString());
-				line.SetPosition(0, ray.origin);
+				line.SetPosition(0, Muzzle.transform.position);
 				line.SetPosition(1, hit.point);
                 var tag = hit.transform.tag;
                 switch (tag)
@@ -69,10 +78,23 @@ public class NetworkGun : NetworkBehaviour
             }
 			else{
 				//print("Hit Noting");
-				line.SetPosition(0, ray.origin);
+				line.SetPosition(0, Muzzle.transform.position);
 				line.SetPosition(1, Camera.main.transform.forward);
 			}
         }
+		//Projectile
+		if (Input.GetButton ("Fire1") && isLocalPlayer && Ammunition > 0 && Time.time > nextFire && projectile) {
+			nextFire = Time.time + fireRate;
+			Ammunition = Ammunition - 1;
+			line.enabled = true;
+			ShootSound ();
+			CmdShootProjectile (projectilePrefab.name.ToString(), Muzzle.transform.position, Camera.main.transform.forward);
+
+			//NetworkInstanceId id = hit.transform.GetComponent<NetworkIdentity>().netId;
+			//CmdShoot(id);
+
+		}
+
 		if (line.enabled) {
 			StartCoroutine (KillLine());
 		}
@@ -88,7 +110,7 @@ public class NetworkGun : NetworkBehaviour
             Debug.LogError("no hleathscript attached to player");
             return;
         }
-        healthScript.GetShot();
+        healthScript.GetShot(20);
     }
 
 	//TODO: [Server]
@@ -143,13 +165,48 @@ public class NetworkGun : NetworkBehaviour
 
 	void ShootSound()
 	{
-		Shot.clip = shootGun2[Random.Range(0,shootGun2.Length)];
-		Shot.Play();
+		AudioSource shot = gameObject.AddComponent<AudioSource> ();
+		shot.outputAudioMixerGroup=amg;
+		shot.clip = shootAudio[Random.Range(0,shootAudio.Length)];
+		shot.Play();
+		Destroy (shot, 2);
 	}
 
 	IEnumerator KillLine(){
 		yield return new WaitForSeconds(.05f);
 		line.enabled = false;
+	}
+		
+
+	public void WeaponUpdateInfo(){
+		WI = GetComponentInChildren<WeaponInfo> ();
+		Muzzle = WI.muzzle;
+		shootAudio = WI.shootAudio;
+		fireRate = WI.fireRate;
+		MaxBulletDist = WI.MaxBulletDist;
+		projectile = WI.projectile;
+		projectilePrefab = WI.projectilePrefab;
+		speed = WI.speed;
+
+	}
+
+
+	[Command(channel=1)]
+	void CmdShootProjectile(string preob, Vector3 pos, Vector3 cam){
+		RpcShootProjectile (preob, pos, cam);
+	}
+
+	[ClientRpc(channel = 1)]
+	private void RpcShootProjectile(string objectToSpawn, Vector3 pos, Vector3 cam)
+	{
+		ShootProjectile (objectToSpawn, pos, cam);
+	}
+
+	void ShootProjectile(string pre, Vector3 pos, Vector3 cam){
+		GameObject projectileS = Instantiate (Resources.Load("Prefabs/"+pre))as GameObject;
+		projectileS.transform.position = pos + cam;
+		Rigidbody rb = projectileS.GetComponent<Rigidbody> ();
+		rb.velocity = Camera.main.transform.forward*speed;
 	}
 
 }

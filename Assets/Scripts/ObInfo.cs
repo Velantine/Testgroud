@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ObInfo : MonoBehaviour {
-	public string name;
+	public string obname;
 	public int iNumber;
 	public float fNumber;
 

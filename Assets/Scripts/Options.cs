@@ -17,6 +17,8 @@ public class Options : MonoBehaviour {
 
 	public AudioMixer master;
 	public string name;
+	public int weapon;
+	public GameObject[] weapons;
 
 	void Start(){
 		gameObject.GetComponent<AudioSource> ().enabled = true;

@@ -71,7 +71,8 @@ public class NetworkMovement : NetworkBehaviour
     {
         Vector3 newPos = Vector3.Lerp(this.transform.position, syncPosition, Time.deltaTime * positionLerpStep);
         Vector3 movement = newPos - this.transform.position;
-        player.CharacterController.Move(movement);
+        //player.CharacterController.Move(movement);
+		player.transform.Translate(movement);
 
         float newBodyRot = Mathf.LerpAngle(this.transform.eulerAngles.y, syncBodyRotation, Time.deltaTime * rotationLerpStep);
         this.transform.rotation = Quaternion.Euler(0, newBodyRot, 0);

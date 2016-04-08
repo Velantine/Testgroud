@@ -15,29 +15,37 @@ public class NetworkPlayer : NetworkBehaviour
     public NetworkMovement movement;
     [HideInInspector]
     public NetworkHealth health;
+	public Transform weaponSpot;
 
-    [HideInInspector]
-    public CharacterController CharacterController;
+    //[HideInInspector]
+    //public CharacterController CharacterController;
 
     void Awake()
     {
         movement = GetComponent<NetworkMovement>();
         health = GetComponent<NetworkHealth>();
-		if (!String.Equals(GameObject.Find ("Options").GetComponent<Options> ().name, "")) {
-			gameObject.name = GameObject.Find("Options").GetComponent<Options>().name;
+		Options opt = GameObject.Find ("Options").GetComponent<Options> ();
+		if (!String.Equals(opt.name, "")) {
+			gameObject.name = opt.name;
 		} else {
 			gameObject.name ="Player";
 		}
+		GameObject weaponO = Instantiate (opt.weapons [opt.weapon], weaponSpot.position, Quaternion.identity)as GameObject;
+		weaponO.transform.SetParent (GetComponentInChildren<Camera>().gameObject.transform);
+		weaponO.transform.rotation=Quaternion.Euler(270,0,90);
+		gameObject.GetComponent<NetworkGun> ().WeaponUpdateInfo ();
     }
 
     void Start()
     {	
 
-		CharacterController = this.GetComponent<CharacterController> ();
+		//CharacterController = this.GetComponent<CharacterController> ();
 		
 
         this.GetComponent<FirstPersonController>().enabled = isLocalPlayer;
-        Camera.GetComponent<AudioListener>().enabled = isLocalPlayer;
+		//this.GetComponent<CharMovement>().enabled=isLocalPlayer;
+		//this.GetComponent<RigidbodyFirstPersonController> ().enabled = isLocalPlayer;
+		Camera.GetComponent<AudioListener>().enabled = isLocalPlayer;
         Camera.GetComponent<Camera>().enabled = isLocalPlayer;
 
     }

@@ -21,9 +21,9 @@ public class NetworkHealth : NetworkBehaviour
 
 
     //TODO: [Server]
-    public void GetShot()
+	public void GetShot(int damage)
     {
-        Health -= 20;
+        Health -= damage;
         RpcUpdateHealth(Health);
     }
 	//TODO: [Server]
