@@ -73,7 +73,7 @@ public class LookAt : NetworkBehaviour {
 						Destroy (GetComponentInChildren<WeaponInfo> ().gameObject);
 						GameObject weaponO = Instantiate (opt.weapons [opt.weapon], weaponSpot.position, Quaternion.identity)as GameObject;
 						weaponO.transform.SetParent (GetComponentInChildren<Camera>().gameObject.transform);
-						weaponO.transform.rotation=Quaternion.Euler(270,0,90);
+						weaponO.transform.localEulerAngles=new Vector3(270,0,90);//Quaternion.Euler(270,0,90);
 						StartCoroutine (WaitW(1));
 						break;
 					}
