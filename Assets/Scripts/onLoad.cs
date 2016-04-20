@@ -2,9 +2,9 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class onLoad :MonoBehaviour {
+public class onLoad :NetworkBehaviour {
 	// Use this for initialization
 	void Start(){
-		ClientScene.AddPlayer(0);
+		ClientScene.AddPlayer (0);
 	}
 }
