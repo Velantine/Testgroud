@@ -86,9 +86,8 @@ public class NetworkGun : NetworkBehaviour
 		if (Input.GetButton ("Fire1") && isLocalPlayer && Ammunition > 0 && Time.time > nextFire && projectile) {
 			nextFire = Time.time + fireRate;
 			Ammunition = Ammunition - 1;
-			line.enabled = true;
 			ShootSound ();
-			CmdShootProjectile (projectilePrefab.name.ToString(), Muzzle.transform.position, Camera.main.transform.forward);
+			CmdShootProjectile (projectilePrefab.name.ToString(), Muzzle.transform.position, this.GetComponentInChildren<Camera>().transform.forward);
 
 			//NetworkInstanceId id = hit.transform.GetComponent<NetworkIdentity>().netId;
 			//CmdShoot(id);
