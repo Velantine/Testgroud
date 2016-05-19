@@ -1,0 +1,577 @@
+fileFormatVersion: 2
+guid: 8ea7efe42154ffb45a16452459f21ff9
+timeCreated: 1463663862
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Antenna
+    100002: Barrel 1
+    100004: Barrel 2
+    100006: Base
+    100008: Body
+    100010: Cam
+    100012: Cam light
+    100014: Camera
+    100016: Lamp
+    100018: Lifter
+    100020: //RootNode
+    400000: Antenna
+    400002: Barrel 1
+    400004: Barrel 2
+    400006: Base
+    400008: Body
+    400010: Cam
+    400012: Cam light
+    400014: Camera
+    400016: Lamp
+    400018: Lifter
+    400020: //RootNode
+    2300000: Antenna
+    2300002: Barrel 1
+    2300004: Barrel 2
+    2300006: Base
+    2300008: Body
+    2300010: Cam
+    2300012: Cam light
+    2300014: Lifter
+    3300000: Antenna
+    3300002: Barrel 1
+    3300004: Barrel 2
+    3300006: Base
+    3300008: Body
+    3300010: Cam
+    3300012: Cam light
+    3300014: Lifter
+    4300000: Base
+    4300002: Lifter
+    4300004: Body
+    4300006: Antenna
+    4300008: Cam light
+    4300010: Cam
+    4300012: Barrel 1
+    4300014: Barrel 2
+    7400000: Body|BarrelsAction
+    7400002: Body|BarrelsAction.001
+    7400004: Body|BodyAction
+    7400006: Barrel 1|BarrelsAction
+    7400008: Barrel 1|BarrelsAction.001
+    7400010: Barrel 1|BodyAction
+    7400012: Barrel 2|BarrelsAction
+    7400014: Barrel 2|BarrelsAction.001
+    7400016: Barrel 2|BodyAction
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Body|BarrelsAction
+      takeName: Body|BarrelsAction
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base
+        weight: 1
+      - path: Base/Lifter
+        weight: 1
+      - path: Base/Lifter/Body
+        weight: 1
+      - path: Base/Lifter/Body/Antenna
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 1
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 2
+        weight: 1
+      - path: Base/Lifter/Body/Cam
+        weight: 1
+      - path: Base/Lifter/Body/Cam light
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Body|BarrelsAction.001
+      takeName: Body|BarrelsAction.001
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base
+        weight: 1
+      - path: Base/Lifter
+        weight: 1
+      - path: Base/Lifter/Body
+        weight: 1
+      - path: Base/Lifter/Body/Antenna
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 1
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 2
+        weight: 1
+      - path: Base/Lifter/Body/Cam
+        weight: 1
+      - path: Base/Lifter/Body/Cam light
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Body|BodyAction
+      takeName: Body|BodyAction
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base
+        weight: 1
+      - path: Base/Lifter
+        weight: 1
+      - path: Base/Lifter/Body
+        weight: 1
+      - path: Base/Lifter/Body/Antenna
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 1
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 2
+        weight: 1
+      - path: Base/Lifter/Body/Cam
+        weight: 1
+      - path: Base/Lifter/Body/Cam light
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Barrel 1|BarrelsAction
+      takeName: Barrel 1|BarrelsAction
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base
+        weight: 1
+      - path: Base/Lifter
+        weight: 1
+      - path: Base/Lifter/Body
+        weight: 1
+      - path: Base/Lifter/Body/Antenna
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 1
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 2
+        weight: 1
+      - path: Base/Lifter/Body/Cam
+        weight: 1
+      - path: Base/Lifter/Body/Cam light
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Barrel 1|BarrelsAction.001
+      takeName: Barrel 1|BarrelsAction.001
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base
+        weight: 1
+      - path: Base/Lifter
+        weight: 1
+      - path: Base/Lifter/Body
+        weight: 1
+      - path: Base/Lifter/Body/Antenna
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 1
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 2
+        weight: 1
+      - path: Base/Lifter/Body/Cam
+        weight: 1
+      - path: Base/Lifter/Body/Cam light
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Barrel 1|BodyAction
+      takeName: Barrel 1|BodyAction
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base
+        weight: 1
+      - path: Base/Lifter
+        weight: 1
+      - path: Base/Lifter/Body
+        weight: 1
+      - path: Base/Lifter/Body/Antenna
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 1
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 2
+        weight: 1
+      - path: Base/Lifter/Body/Cam
+        weight: 1
+      - path: Base/Lifter/Body/Cam light
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Barrel 2|BarrelsAction
+      takeName: Barrel 2|BarrelsAction
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base
+        weight: 1
+      - path: Base/Lifter
+        weight: 1
+      - path: Base/Lifter/Body
+        weight: 1
+      - path: Base/Lifter/Body/Antenna
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 1
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 2
+        weight: 1
+      - path: Base/Lifter/Body/Cam
+        weight: 1
+      - path: Base/Lifter/Body/Cam light
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Barrel 2|BarrelsAction.001
+      takeName: Barrel 2|BarrelsAction.001
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base
+        weight: 1
+      - path: Base/Lifter
+        weight: 1
+      - path: Base/Lifter/Body
+        weight: 1
+      - path: Base/Lifter/Body/Antenna
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 1
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 2
+        weight: 1
+      - path: Base/Lifter/Body/Cam
+        weight: 1
+      - path: Base/Lifter/Body/Cam light
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Barrel 2|BodyAction
+      takeName: Barrel 2|BodyAction
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base
+        weight: 1
+      - path: Base/Lifter
+        weight: 1
+      - path: Base/Lifter/Body
+        weight: 1
+      - path: Base/Lifter/Body/Antenna
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 1
+        weight: 1
+      - path: Base/Lifter/Body/Barrel 2
+        weight: 1
+      - path: Base/Lifter/Body/Cam
+        weight: 1
+      - path: Base/Lifter/Body/Cam light
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
