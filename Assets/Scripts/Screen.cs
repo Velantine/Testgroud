@@ -30,7 +30,7 @@ public class Screen : NetworkBehaviour {
 		}
 		if (Input.GetButtonDown ("Map")&&isLocalPlayer) {
 			screenLock=false;
-			Application.LoadLevel (1);
+			Application.LoadLevel (3);
 		}
 //		if(Input.GetButtonDown("Cancel")&&isLocalPlayer){
 //			if (escapeM == false) {

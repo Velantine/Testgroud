@@ -51,8 +51,8 @@ public class NetworkGun : NetworkBehaviour
 			nextFire = Time.time + fireRate;
 			Ammunition=Ammunition-1;
 			line.enabled = true;
-			ShootSound();
-			//var ray = new Ray(Muzzle.position, Muzzle.right);
+            ShootSound();
+            //var ray = new Ray(Muzzle.position, Muzzle.right);
             var hit = new RaycastHit();
 			if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)), out hit, MaxBulletDist))
             {
@@ -86,11 +86,7 @@ public class NetworkGun : NetworkBehaviour
 		if (Input.GetButton ("Fire1") && isLocalPlayer && Ammunition > 0 && Time.time > nextFire && projectile) {
 			nextFire = Time.time + fireRate;
 			Ammunition = Ammunition - 1;
-			ShootSound ();
-			CmdShootProjectile (projectilePrefab.name.ToString(), Muzzle.transform.position, this.GetComponentInChildren<Camera>().transform.forward);
-
-			//NetworkInstanceId id = hit.transform.GetComponent<NetworkIdentity>().netId;
-			//CmdShoot(id);
+			CmdShootProjectile (this.transform.GetComponent<NetworkIdentity>().netId);
 
 		}
 
@@ -189,23 +185,26 @@ public class NetworkGun : NetworkBehaviour
 
 	}
 
-
+    //Projectile
 	[Command(channel=1)]
-	void CmdShootProjectile(string preob, Vector3 pos, Vector3 cam){
-		RpcShootProjectile (preob, pos, cam);
+	void CmdShootProjectile(NetworkInstanceId id){
+		RpcShootProjectile (id);
 	}
 
 	[ClientRpc(channel = 1)]
-	private void RpcShootProjectile(string objectToSpawn, Vector3 pos, Vector3 cam)
+	private void RpcShootProjectile(NetworkInstanceId id)
 	{
-		ShootProjectile (objectToSpawn, pos, cam);
+		ShootProjectile (id);
 	}
 
-	void ShootProjectile(string pre, Vector3 pos, Vector3 cam){
-		GameObject projectileS = Instantiate (Resources.Load("Prefabs/"+pre))as GameObject;
-		projectileS.transform.position = pos + cam;
-		Rigidbody rb = projectileS.GetComponent<Rigidbody> ();
-		rb.velocity = Camera.main.transform.forward*speed;
+	void ShootProjectile(NetworkInstanceId id){
+        ShootSound();
+        GameObject player = NetworkServer.FindLocalObject(id);
+        GameObject projectileS = Instantiate (Resources.Load("Prefabs/"+ player.GetComponentInChildren<WeaponInfo>().projectilePrefab.name), player.GetComponentInChildren<WeaponInfo>().muzzle.transform.position, player.GetComponentInChildren<WeaponInfo>().muzzle.transform.localRotation) as GameObject;
+		//projectileS.transform.position = player.GetComponentInChildren<WeaponInfo>().muzzle.transform.position;
+        //projectileS.transform.forward = player.GetComponentInChildren<WeaponInfo>().muzzle.transform.forward;
+        Rigidbody rb = projectileS.GetComponent<Rigidbody> ();
+		rb.velocity = player.GetComponentInChildren<Camera>().transform.forward * player.GetComponentInChildren<WeaponInfo>().speed;
 	}
 
 }

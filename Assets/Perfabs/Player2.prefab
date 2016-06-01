@@ -4800,7 +4800,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139582}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53914404f6d6d7a48b162c3464f95ca4, type: 3}
   m_Name: 
@@ -4881,8 +4881,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11412518}
   m_HandleRect: {fileID: 22448528}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.6099999
+  m_Value: 0.99999946
+  m_Size: 0.60999995
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4906,9 +4906,9 @@ MonoBehaviour:
   m_RotationSyncCompression: 2
   m_SyncSpin: 1
   m_MovementTheshold: 0.001
-  m_SnapThreshold: 100
+  m_SnapThreshold: 0.01
   m_InterpolateRotation: 1
-  m_InterpolateMovement: 0.1
+  m_InterpolateMovement: 0.5
 --- !u!114 &11457050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5518,7 +5518,7 @@ MonoBehaviour:
   m_WalkSpeed: 5
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
-  m_JumpSpeed: 10
+  m_JumpSpeed: 7.5
   m_StickToGroundForce: 10
   m_GravityMultiplier: 2
   m_MouseLook:
