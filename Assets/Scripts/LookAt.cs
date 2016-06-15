@@ -34,13 +34,13 @@ public class LookAt : NetworkBehaviour {
 							NetworkInstanceId id = gameObject.GetComponent<NetworkIdentity>().netId;
 							NetworkGun GunScript = thisObj.GetComponent<NetworkGun> ();
 							GunScript.Ammunition = GunScript.Ammunition+hit.transform.gameObject.GetComponent<ObInfo>().iNumber;
-							DestroyImmediate(hit.transform.gameObject);
-							break;
+                            CmdDestroy(hit.transform.GetComponent<NetworkIdentity>().netId);
+                            break;
 						}
 						if(hit.transform.gameObject.GetComponent<ObInfo>().obname=="Medkit"){
 							NetworkHealth HScript = thisObj.GetComponent<NetworkHealth> ();
 							HScript.Health = HScript.Health+hit.transform.gameObject.GetComponent<ObInfo>().iNumber;
-							DestroyImmediate(hit.transform.gameObject);
+                            CmdDestroy(hit.transform.GetComponent<NetworkIdentity>().netId);
 							break;
 						}
 						break;
@@ -136,4 +136,22 @@ public class LookAt : NetworkBehaviour {
 		var gunScript = player.GetComponent<NetworkGun>();
 		gunScript.GetAmmo(hit.gameObject.GetComponent<ObInfo>().iNumber);
 	}
+
+
+    [Command(channel = 1)]
+    void CmdDestroy(NetworkInstanceId id)
+    {
+        RpcDestroy(id);
+    }
+
+    [ClientRpc(channel = 1)]
+    private void RpcDestroy(NetworkInstanceId id)
+    {
+        DestroyOb(id);
+    }
+
+    void DestroyOb(NetworkInstanceId id)
+    {
+        DestroyImmediate(NetworkServer.FindLocalObject(id));
+    }
 }

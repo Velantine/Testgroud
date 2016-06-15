@@ -450,6 +450,7 @@ GameObject:
   - 4: {fileID: 423954}
   - 20: {fileID: 2042804}
   - 81: {fileID: 8107550}
+  - 114: {fileID: 11409944}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -1017,6 +1018,7 @@ GameObject:
   - 114: {fileID: 11434258}
   - 114: {fileID: 11464462}
   - 114: {fileID: 11456428}
+  - 114: {fileID: 11430492}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -4135,6 +4137,38 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &11409944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 11
+    i1: 170
+    i2: 84
+    i3: 208
+    i4: 92
+    i5: 0
+    i6: 198
+    i7: 228
+    i8: 169
+    i9: 136
+    i10: 229
+    i11: 201
+    i12: 180
+    i13: 237
+    i14: 209
+    i15: 32
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &11410268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4511,6 +4545,25 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11430492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 423954}
+  m_ChildIndex: 0
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 2
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &11430670
 MonoBehaviour:
   m_ObjectHideFlags: 1
