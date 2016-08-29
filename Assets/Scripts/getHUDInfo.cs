@@ -4,15 +4,21 @@ using UnityEngine.UI;
 
 public class getHUDInfo : MonoBehaviour {
 	public GameObject ThisO;
-	public Slider healthSlider;
+    public WeaponInfo WI;
+    public Slider healthSlider;
 	public Text deathCounter;
 	public Text Ammonition;
 
+    void Start() {
+        WI = ThisO.GetComponent<NetworkGun>().WI;
+    }
+
 	void Update () {
-		NetworkHealth HScript = ThisO.GetComponent<NetworkHealth>();
+        WI = ThisO.GetComponent<NetworkGun>().WI;
+        NetworkHealth HScript = ThisO.GetComponent<NetworkHealth>();
 		healthSlider.value = HScript.Health;
 		NetworkGun GunScript = ThisO.GetComponentInChildren<NetworkGun> ();
-		Ammonition.text = GunScript.Ammunition.ToString();
+		Ammonition.text = WI.ammo.ToString();
 		deathCounter.text = "Deaths: " + HScript.deaths;
 	}
 }

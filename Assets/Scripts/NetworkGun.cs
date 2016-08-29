@@ -49,7 +49,7 @@ public class NetworkGun : NetworkBehaviour
 		if (Input.GetButton("Fire1")&&isLocalPlayer&&Ammunition>0&&Time.time>nextFire&&!projectile)
         {
 			nextFire = Time.time + fireRate;
-			Ammunition=Ammunition-1;
+            WI.ammo = WI.ammo - 1;
 			line.enabled = true;
             ShootSound();
             //var ray = new Ray(Muzzle.position, Muzzle.right);
@@ -85,8 +85,8 @@ public class NetworkGun : NetworkBehaviour
 		//Projectile
 		if (Input.GetButton ("Fire1") && isLocalPlayer && Ammunition > 0 && Time.time > nextFire && projectile) {
 			nextFire = Time.time + fireRate;
-			Ammunition = Ammunition - 1;
-			CmdShootProjectile (this.transform.GetComponent<NetworkIdentity>().netId);
+            WI.ammo = WI.ammo - 1;
+            CmdShootProjectile (this.transform.GetComponent<NetworkIdentity>().netId);
 
 		}
 
@@ -110,15 +110,16 @@ public class NetworkGun : NetworkBehaviour
 
 	//TODO: [Server]
 	public void GetAmmo (float ammocount){
-		Ammunition+=ammocount;
-		RpcUpdateAmmo (Ammunition);
+		WI.ammo+=ammocount;
+		RpcUpdateAmmo (WI.ammo);
 	}
 
 
 	[ClientRpc(channel = 1)]
 	private void RpcUpdateAmmo(float ammo)
 	{
-		Ammunition=ammo;
+        WI.ammo = ammo;
+
 	}
 
 
@@ -182,8 +183,10 @@ public class NetworkGun : NetworkBehaviour
 		projectile = WI.projectile;
 		projectilePrefab = WI.projectilePrefab;
 		speed = WI.speed;
+        Ammunition = WI.ammo;
 
-	}
+
+    }
 
     //Projectile
 	[Command(channel=1)]

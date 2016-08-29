@@ -10,5 +10,5 @@ public class WeaponInfo : MonoBehaviour {
 	public Transform muzzle;
 	public GameObject projectilePrefab;
 	public float speed;
-
+    public float ammo;
 }

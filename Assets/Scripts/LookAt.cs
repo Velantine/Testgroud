@@ -33,7 +33,7 @@ public class LookAt : NetworkBehaviour {
 						if(hit.transform.gameObject.GetComponent<ObInfo>().obname=="Ammo_Box"){
 							NetworkInstanceId id = gameObject.GetComponent<NetworkIdentity>().netId;
 							NetworkGun GunScript = thisObj.GetComponent<NetworkGun> ();
-							GunScript.Ammunition = GunScript.Ammunition+hit.transform.gameObject.GetComponent<ObInfo>().iNumber;
+							GunScript.WI.ammo = GunScript.WI.ammo + hit.transform.gameObject.GetComponent<ObInfo>().iNumber;
                             CmdDestroy(hit.transform.GetComponent<NetworkIdentity>().netId);
                             break;
 						}

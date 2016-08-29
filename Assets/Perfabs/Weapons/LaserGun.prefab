@@ -163,6 +163,8 @@ MonoBehaviour:
   projectile: 0
   muzzle: {fileID: 402934}
   projectilePrefab: {fileID: 0}
+  speed: 0
+  ammo: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
