@@ -24,7 +24,7 @@ public class NetworkConnect : MonoBehaviour {
 
 	public void Connect()
 	{
-		manager.matchMaker.ListMatches(0,20, roomName.text, manager.OnMatchList);
+		//manager.matchMaker.ListMatches(0,20, roomName.text, manager.OnMatchList);
 
 	}
 
@@ -33,7 +33,7 @@ public class NetworkConnect : MonoBehaviour {
 
 	public void CreateConnect(){
 		manager.StartMatchMaker();
-		manager.matchMaker.CreateMatch(roomName.text, 20, true, "", manager.OnMatchCreate);
+		//manager.matchMaker.CreateMatch(roomName.text, 20, true, "", manager.OnMatchCreate);
 	}
 
 
