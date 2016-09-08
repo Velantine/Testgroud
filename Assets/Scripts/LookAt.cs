@@ -28,7 +28,7 @@ public class LookAt : NetworkBehaviour {
 			var tag = hit.transform.tag;
 			switch(tag){
 				case "Collect":
-				if(Input.GetButtonDown("Enter")&&isLocalPlayer){
+				if(Input.GetButtonDown("Interaktion") &&isLocalPlayer){
 						pickUp.Play();
 						if(hit.transform.gameObject.GetComponent<ObInfo>().obname=="Ammo_Box"){
 							NetworkInstanceId id = gameObject.GetComponent<NetworkIdentity>().netId;
@@ -50,7 +50,7 @@ public class LookAt : NetworkBehaviour {
 					//Something
 					break;
 			case "Activate":
-				if (Input.GetButtonDown ("Enter")&&isLocalPlayer) {
+				if (Input.GetButtonDown ("Interaktion") &&isLocalPlayer) {
 					pickUp.Play ();
 					if (hit.transform.gameObject.GetComponent<ObInfo> ().obname == "SpawnAmmo_Box") {
 						//GameObject ammoBox = (GameObject)Instantiate (prefabs [0], new Vector3 (hit.transform.position.x, hit.transform.position.y, hit.transform.position.z-2), Quaternion.identity);
@@ -82,7 +82,7 @@ public class LookAt : NetworkBehaviour {
 					}
 					break;
 			case "Sit":
-				if (Input.GetButtonDown ("Enter")&&isLocalPlayer) {
+				if (Input.GetButtonDown ("Interaktion") &&isLocalPlayer) {
 					this.gameObject.transform.SetParent (hit.transform);
 					siting = true;
 					StartCoroutine( Wait (2));
@@ -91,7 +91,7 @@ public class LookAt : NetworkBehaviour {
 				break;
 							}
 		}
-		if (siting&&Input.GetButtonDown("Enter")&&isLocalPlayer&&cSit) {
+		if (siting&&Input.GetButtonDown("Interaktion") &&isLocalPlayer&&cSit) {
 			this.gameObject.transform.SetParent(GameObject.Find("World").transform);
 			siting = false;
 			cSit = false;
