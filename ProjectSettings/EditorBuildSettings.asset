@@ -6,10 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menue.unity
-  - enabled: 1
-    path: Assets/Scenes/SpaceMap.unity
+    path: Assets/Scenes/MainMenue.unity
   - enabled: 1
     path: Assets/Scenes/TEst.unity
   - enabled: 1
     path: Assets/Scenes/SpaceFight.unity
+  - enabled: 1
+    path: Assets/Scenes/SpaceMap.unity
+  - enabled: 1
+    path: Assets/Scenes/Menue.unity
