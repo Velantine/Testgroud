@@ -79,16 +79,17 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
+    agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    accuratePlacement: 0
     minRegionArea: 2
-    cellSize: 0.16666667
     manualCellSize: 0
+    cellSize: 0.16666667
+    accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &15324403
 GameObject:
@@ -2088,10 +2089,12 @@ MonoBehaviour:
   m_PlayerPrefab: {fileID: 139582, guid: 0baa54d05c00c6e4a988e5c9b4edd120, type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
-  m_OfflineScene: Menue
+  m_OfflineScene: MainMenue
   m_OnlineScene: TEst
-  m_SpawnPrefabs: []
-  m_CustomConfig: 1
+  m_SpawnPrefabs:
+  - {fileID: 193318, guid: be60a71d98766384a8af831636a3fbff, type: 2}
+  - {fileID: 129752, guid: 712f036329297c6499a8662417e7550f, type: 2}
+  m_CustomConfig: 0
   m_MaxConnections: 100
   m_ConnectionConfig:
     m_PacketSize: 1500
@@ -5352,7 +5355,6 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputOverride: {fileID: 0}
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -6132,7 +6134,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 132640048}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.52
+  m_Size: 0.5199999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9114,8 +9116,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1628961409}
   m_HandleRect: {fileID: 1628961408}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0.3125
+  m_Size: 0.9999997
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -15,8 +15,6 @@ public class NetworkGun : NetworkBehaviour
     public float WallParticleTime = 2;
     public float BloodParticleTime = 2;
 
-	[SyncVar]
-	public float Ammunition;
 
 	private Transform Muzzle;
     public GameObject WallParticlePrefab;
@@ -37,7 +35,7 @@ public class NetworkGun : NetworkBehaviour
 		line.enabled = false;
 
 		WeaponUpdateInfo ();
-
+        
 	}
 	
 	
@@ -46,11 +44,11 @@ public class NetworkGun : NetworkBehaviour
     void Update()
     {
 		//Laser
-		if (Input.GetButton("Fire1")&&isLocalPlayer&&Ammunition>0&&Time.time>nextFire&&!projectile)
+		if (Input.GetButton("Fire1")&&isLocalPlayer&&WI.ammo>0&&Time.time>nextFire&&!projectile)
         {
 			nextFire = Time.time + fireRate;
             WI.ammo = WI.ammo - 1;
-			line.enabled = true;
+            line.enabled = true;
             ShootSound();
             //var ray = new Ray(Muzzle.position, Muzzle.right);
             var hit = new RaycastHit();
@@ -83,7 +81,7 @@ public class NetworkGun : NetworkBehaviour
 			}
         }
 		//Projectile
-		if (Input.GetButton ("Fire1") && isLocalPlayer && Ammunition > 0 && Time.time > nextFire && projectile) {
+		if (Input.GetButton ("Fire1") && isLocalPlayer && WI.ammo > 0 && Time.time > nextFire && projectile) {
 			nextFire = Time.time + fireRate;
             WI.ammo = WI.ammo - 1;
             CmdShootProjectile (this.transform.GetComponent<NetworkIdentity>().netId);
@@ -183,7 +181,6 @@ public class NetworkGun : NetworkBehaviour
 		projectile = WI.projectile;
 		projectilePrefab = WI.projectilePrefab;
 		speed = WI.speed;
-        Ammunition = WI.ammo;
 
 
     }
