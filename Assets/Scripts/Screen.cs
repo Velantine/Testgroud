@@ -19,7 +19,7 @@ public class Screen : NetworkBehaviour {
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 		}
-		if(Input.GetButtonDown ("Chat")&&isLocalPlayer) {
+		if(Input.GetButtonDown ("All-Chat")&&isLocalPlayer) {
 			if(screenLock==false){
 				screenLock=true;
 			}
