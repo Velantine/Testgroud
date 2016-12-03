@@ -77,7 +77,8 @@ public class NetworkGun : NetworkBehaviour
 			else{
 				//print("Hit Noting");
 				line.SetPosition(0, Muzzle.transform.position);
-				line.SetPosition(1, Camera.main.transform.forward);
+                GameObject player = NetworkServer.FindLocalObject(this.transform.GetComponent<NetworkIdentity>().netId);
+                line.SetPosition(1, player.GetComponentInChildren<Camera>().transform.forward*WI.MaxBulletDist);
 			}
         }
 		//Projectile
