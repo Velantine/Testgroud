@@ -35,6 +35,13 @@ public class ItemData
         // Standart  Konstructor für die XML Serialize Funktion (Muss auf jeden Fall vorhanden bleiben!
     }
 
+    public ItemData(int pid, float pweight, int pslotID, int pattribute) {
+        this.id = pid;
+        this.weight = pweight;
+        this.slotID = pslotID;
+        this.attribute = pattribute;
+    }
+
     public void Save()
     {
         string Path = DataPool.path() + id.ToString() + ".idata";

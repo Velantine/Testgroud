@@ -12,7 +12,7 @@ public class Keys : MonoBehaviour {
     public Text[] keys;
 
     public void Start() {
-        for (int i=0;i<=inputs.Length;i++) {
+        for (int i=0;i<inputs.Length;i++) {
             inputs[i].text = inputName[i];
             keys[i].text = keyName[i];
         }

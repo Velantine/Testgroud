@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <ItemData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>1</Id>
-  <Weight>100</Weight>
-  <SlotID>0</SlotID>
-  <Attribute>20</Attribute>
+  <Weight>20</Weight>
+  <SlotID>2</SlotID>
+  <Attribute>50</Attribute>
 </ItemData>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<ObjectData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <name>1</name>
+  <posX>27.1800385</posX>
+  <posY>0.5327226</posY>
+  <posZ>30.5047626</posZ>
+  <rotX>-0.7071068</rotX>
+  <rotY>0</rotY>
+  <rotZ>0</rotZ>
+  <rotW>0.7071067</rotW>
+  <obj>Barrel</obj>
+</ObjectData>
