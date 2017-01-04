@@ -30,7 +30,8 @@ public class OnStartUp : MonoBehaviour {
         }
         if (!File.Exists(DataPool.optionPath()))
         {
-            Options options = GameObject.Find("Options").GetComponent<Options>();
+            Options optionsObj = GameObject.Find("Options").GetComponent<Options>();
+            OptionsClass options = new OptionsClass(optionsObj.soundVolume,optionsObj.musicVolume,optionsObj.mute);
             options.Save();
         }
 

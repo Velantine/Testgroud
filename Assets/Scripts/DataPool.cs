@@ -50,7 +50,7 @@ public static class DataPool
     public static Dictionary<string, ItemData> ItemList = new Dictionary<string, ItemData>();
     public static Dictionary<string, PlayerData> PlayerList = new Dictionary<string, PlayerData>();
     public static Dictionary<string, Object> ObjectList = new Dictionary<string, Object>();
-    public static Dictionary<string, Options> OptionList = new Dictionary<string, Options>();
+    public static Dictionary<string, OptionsClass> OptionList = new Dictionary<string, OptionsClass>();
 
     public static void Start()
     {
@@ -82,6 +82,15 @@ public static class DataPool
         {
             Object tmp = Object.Load(ID);
             ObjectList.Add(tmp.name.ToString(), tmp);
+        }
+    }
+
+    public static void LoadOptions()
+    {
+        if (!OptionList.ContainsKey("Options.xml"))
+        {
+            OptionsClass tmp = OptionsClass.Load();
+            OptionList.Add("Options.xml", tmp);
         }
     }
 }

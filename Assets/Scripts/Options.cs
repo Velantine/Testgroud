@@ -2,32 +2,23 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Audio;
-using System.Xml.Serialization;
-using System.IO;
 
-[XmlRoot("Options")]
 public class Options : MonoBehaviour {
 
     void Awake() {
 		DontDestroyOnLoad(transform.gameObject);
+        LoadOptions();
 	}
 
 	[Range(-80, 20)]
-    [XmlElement("SoundVolume")]
     public float soundVolume;
 	[Range(-80, 20)]
-    [XmlElement("MusicVolume")]
     public float musicVolume;
-    [XmlElement("Mute")]
     public bool mute;
 
-    [XmlIgnore]
 	public AudioMixer master;
-    [XmlIgnore]
     public string name;
-    [XmlIgnore]
     public int weapon;
-    [XmlIgnore]
     public GameObject[] weapons;
 
 	void Start(){
@@ -60,39 +51,24 @@ public class Options : MonoBehaviour {
 		soundVolume = GameObject.Find ("SliderSound").GetComponent<Slider> ().value;
 		GameObject.Find ("MusicTextNumber").GetComponent<Text> ().text = (musicVolume/10).ToString("##0.0 %");
 		GameObject.Find ("SoundTextNumber").GetComponent<Text> ().text = (soundVolume/10).ToString("##0.0 %");
-	}
-
-
-    //+++++++++++++++++++++++++++++
-
-    public void Save()
-    {
-        string Path = DataPool.optionPath();
-        var serializer = new XmlSerializer(typeof(Options));
-        var stream = new FileStream(Path, FileMode.Create);
-        serializer.Serialize(stream, this);
-        stream.Close();
-    }
-    public static Options Load()
-    {
-        string Path = DataPool.optionPath();
-        Options container;
-        var serializer = new XmlSerializer(typeof(Options));
-        if (File.Exists(Path))
-        {
-            var stream = new FileStream(Path, FileMode.Open);
-            container = serializer.Deserialize(stream) as Options;
-            stream.Close();
-            container.Save();
-
-        }
-        else
-        {
-            container = new Options();
-            container.Save();
-        }
-        return container;
+        SaveOptions();
 
     }
+
+    public void LoadOptions() {
+        DataPool.LoadOptions();
+        OptionsClass optC;
+        DataPool.OptionList.TryGetValue("Options.xml", out optC);
+        this.soundVolume = optC.soundVolume;
+        this.musicVolume = optC.musicVolume;
+        this.mute = optC.mute;
+    }
+
+    public void SaveOptions()
+    {
+        OptionsClass options = new OptionsClass(this.soundVolume, this.musicVolume, this.mute);
+        options.Save();
+    }
+
 
 }
