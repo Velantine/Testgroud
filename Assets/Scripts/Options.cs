@@ -44,6 +44,14 @@ public class Options : MonoBehaviour {
 		}
 
 	}
+    public void Up() {
+        //LoadOptions();
+        GameObject.Find("ToggleMute").GetComponent<Toggle>().isOn = mute;
+        GameObject.Find("SliderMusic").GetComponent<Slider>().value = musicVolume;
+        GameObject.Find("SliderSound").GetComponent<Slider>().value = soundVolume;
+        GameObject.Find("MusicTextNumber").GetComponent<Text>().text = (musicVolume / 10).ToString("##0.0 %");
+        GameObject.Find("SoundTextNumber").GetComponent<Text>().text = (soundVolume / 10).ToString("##0.0 %");
+    }
 
 	public void NumberUpdate(){
 		mute = GameObject.Find ("ToggleMute").GetComponent<Toggle> ().isOn;
