@@ -19,14 +19,13 @@ public class Menue : MonoBehaviour {
 		DestroyImmediate (GameObject.Find ("Networkmanager"));
 
 
-		if (!GameObject.Find ("Options")) {
-			Instantiate (options);
-			GameObject.Find ("Options(Clone)").name = "Options";
-			/*if (Application.isEditor){
-				GameObject.Find ("Options").GetComponent<AudioSource> ().enabled = false;
-			}*/
-		}
-        GameObject.Find("Options").GetComponent<Options>().LoadOptions();
+        if (!GameObject.Find("Options"))
+        {
+            Instantiate(options);
+            GameObject.Find("Options(Clone)").name = "Options";
+        }
+        LoadOpt();
+        //Up();
 
 
     }
@@ -37,6 +36,10 @@ public class Menue : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void LoadOpt() {
+        GameObject.Find("Options").GetComponent<Options>().LoadOptions();
+    }
 
     public void Up() {
         GameObject.Find("Options").GetComponent<Options>().Up();

@@ -7,7 +7,7 @@ public class Options : MonoBehaviour {
 
     void Awake() {
 		DontDestroyOnLoad(transform.gameObject);
-        LoadOptions();
+        //LoadOptions();
 	}
 
 	[Range(-80, 20)]
@@ -21,9 +21,11 @@ public class Options : MonoBehaviour {
     public int weapon;
     public GameObject[] weapons;
 
+
 	void Start(){
 		gameObject.GetComponent<AudioSource> ().enabled = true;
-	}
+
+    }
 
 	void Update(){
 		if(musicVolume==-20){

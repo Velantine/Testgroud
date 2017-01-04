@@ -22,12 +22,12 @@ public class OnStartUp : MonoBehaviour {
         {
             Instantiate(optionsOb);
             GameObject.Find("Options(Clone)").name = "Options";
-            GameObject.Find("Options").SetActive(true);
-            if (Application.isEditor)
+            /*if (Application.isEditor)
             {
                 GameObject.Find("Options").GetComponent<AudioSource>().enabled = false;
-            }
+            }*/
         }
+        GameObject.Find("Options").GetComponent<Options>().LoadOptions();
         if (!File.Exists(DataPool.optionPath()))
         {
             Options optionsObj = GameObject.Find("Options").GetComponent<Options>();
