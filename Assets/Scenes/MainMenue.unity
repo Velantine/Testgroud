@@ -4807,6 +4807,7 @@ GameObject:
   - component: {fileID: 362455404}
   - component: {fileID: 362455403}
   - component: {fileID: 362455406}
+  - component: {fileID: 362455407}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4874,7 +4875,19 @@ MonoBehaviour:
   - {fileID: 234075226}
   - {fileID: 958582162}
   - {fileID: 674631620}
-  switchTime: 200
+  switchTime: 0
+--- !u!114 &362455407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 362455402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29dca8d83b540754193ff2b7cb831d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionsOb: {fileID: 169212, guid: 142403ec0472290498efcbc78beaec32, type: 2}
 --- !u!1 &394831585
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,11 +35,22 @@ public static class DataPool
         return returnpath;
     }
 
+    public static string optionPath()
+    {
+        string returnpath = "";
+        DirectoryInfo ParentDirectory = new DirectoryInfo(Application.dataPath);
+        ParentDirectory = ParentDirectory.Parent;
+        returnpath = ParentDirectory.ToString();
+        returnpath = returnpath + "/Resources/Options.xml";
+        return returnpath;
+    }
+
 
 
     public static Dictionary<string, ItemData> ItemList = new Dictionary<string, ItemData>();
     public static Dictionary<string, PlayerData> PlayerList = new Dictionary<string, PlayerData>();
     public static Dictionary<string, Object> ObjectList = new Dictionary<string, Object>();
+    public static Dictionary<string, Options> OptionList = new Dictionary<string, Options>();
 
     public static void Start()
     {

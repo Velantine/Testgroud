@@ -2,23 +2,33 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using System.Xml.Serialization;
+using System.IO;
 
+[XmlRoot("Options")]
 public class Options : MonoBehaviour {
-	void Awake() {
+
+    void Awake() {
 		DontDestroyOnLoad(transform.gameObject);
 	}
 
 	[Range(-80, 20)]
-	public float soundVolume;
+    [XmlElement("SoundVolume")]
+    public float soundVolume;
 	[Range(-80, 20)]
-	public float musicVolume;
+    [XmlElement("MusicVolume")]
+    public float musicVolume;
+    [XmlElement("Mute")]
+    public bool mute;
 
-	public bool mute;
-
+    [XmlIgnore]
 	public AudioMixer master;
-	public string name;
-	public int weapon;
-	public GameObject[] weapons;
+    [XmlIgnore]
+    public string name;
+    [XmlIgnore]
+    public int weapon;
+    [XmlIgnore]
+    public GameObject[] weapons;
 
 	void Start(){
 		gameObject.GetComponent<AudioSource> ().enabled = true;
@@ -48,7 +58,41 @@ public class Options : MonoBehaviour {
 		mute = GameObject.Find ("ToggleMute").GetComponent<Toggle> ().isOn;
 		musicVolume = GameObject.Find ("SliderMusic").GetComponent<Slider> ().value;
 		soundVolume = GameObject.Find ("SliderSound").GetComponent<Slider> ().value;
-		GameObject.Find ("MusicTextNumber").GetComponent<Text> ().text = (musicVolume/10).ToString("###.0 %");
-		GameObject.Find ("SoundTextNumber").GetComponent<Text> ().text = (soundVolume/10).ToString("###.0 %");
+		GameObject.Find ("MusicTextNumber").GetComponent<Text> ().text = (musicVolume/10).ToString("##0.0 %");
+		GameObject.Find ("SoundTextNumber").GetComponent<Text> ().text = (soundVolume/10).ToString("##0.0 %");
 	}
+
+
+    //+++++++++++++++++++++++++++++
+
+    public void Save()
+    {
+        string Path = DataPool.optionPath();
+        var serializer = new XmlSerializer(typeof(Options));
+        var stream = new FileStream(Path, FileMode.Create);
+        serializer.Serialize(stream, this);
+        stream.Close();
+    }
+    public static Options Load()
+    {
+        string Path = DataPool.optionPath();
+        Options container;
+        var serializer = new XmlSerializer(typeof(Options));
+        if (File.Exists(Path))
+        {
+            var stream = new FileStream(Path, FileMode.Open);
+            container = serializer.Deserialize(stream) as Options;
+            stream.Close();
+            container.Save();
+
+        }
+        else
+        {
+            container = new Options();
+            container.Save();
+        }
+        return container;
+
+    }
+
 }
