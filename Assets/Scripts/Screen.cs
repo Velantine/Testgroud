@@ -32,20 +32,24 @@ public class Screen : NetworkBehaviour {
 			screenLock=false;
 			Application.LoadLevel (3);
 		}
-//		if(Input.GetButtonDown("Cancel")&&isLocalPlayer){
-//			if (escapeM == false) {
-//				escapeM = true;
-//				screenLock = false;
-//				GameObject.Find ("UI").SetActive (false);
-//				GameObject.Find ("EscapeM").SetActive (true);
-//				GameObject.Find ("Options").GetComponent<Options> ().NumberUpdate ();
-//			}
-//			if (escapeM == true) {
-//				escapeM = false;
-//				screenLock = true;
-//				GameObject.Find ("UI").SetActive (true);
-//				GameObject.Find ("EscapeM").SetActive (false);
-//			}
-//		}
-	}
+        if (Input.GetButtonDown("Cancel") && isLocalPlayer)
+        {
+            Application.LoadLevel(4);
+            //if (escapeM == false)
+            //{
+            //    escapeM = true;
+            //    screenLock = false;
+            //    GameObject.Find("UI").SetActive(false);
+            //    GameObject.Find("EscapeM").SetActive(true);
+            //    GameObject.Find("Options").GetComponent<Options>().NumberUpdate();
+            //}
+            //if (escapeM == true)
+            //{
+            //    escapeM = false;
+            //    screenLock = true;
+            //    GameObject.Find("UI").SetActive(true);
+            //    GameObject.Find("EscapeM").SetActive(false);
+            //}
+        }
+    }
 }

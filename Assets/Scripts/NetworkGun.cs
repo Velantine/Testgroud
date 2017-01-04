@@ -9,6 +9,7 @@ public class NetworkGun : NetworkBehaviour
 {
 	public AudioClip[] shootAudio;
 	public AudioMixerGroup amg;
+    public GameObject explObj;
 
 
 	private float MaxBulletDist = 100;
@@ -67,7 +68,9 @@ public class NetworkGun : NetworkBehaviour
                         CmdShoot(id);
 						break;
 					case "Destructable":
-						//STUFF
+                        GameObject expo = Instantiate(explObj,hit.transform.position,hit.transform.rotation);
+                        Destroy(hit.transform.gameObject);
+                        Destroy(expo, 2f);
 						break;
                     default:
                         CmdInvokeParticle(hit.transform.tag, hit.point, hit.normal);

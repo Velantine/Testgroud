@@ -5,8 +5,10 @@ using UnityEngine.Networking;
 public class Bullet : NetworkBehaviour {
 	public float destroyTime;
 	public int damage;
-	// Use this for initialization
-	void Start () {
+    public GameObject explObj;
+
+    // Use this for initialization
+    void Start () {
 		Destroy (gameObject, destroyTime);
 	}
 
@@ -16,10 +18,12 @@ public class Bullet : NetworkBehaviour {
 			CmdShoot (col.gameObject.GetComponent<NetworkIdentity> ().netId);
 			Destroy (gameObject, 0);
 			break;
-		case "Destructable":
-			//STUFF
-			break;
-		default:
+        case "Destructable":
+            GameObject expo = Instantiate(explObj, col.transform.position, col.transform.rotation);
+            Destroy(col.transform.gameObject);
+            Destroy(expo, 2f);
+            break;
+        default:
 			break;
 		}
 	}

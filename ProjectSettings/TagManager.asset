@@ -8,6 +8,7 @@ TagManager:
   - Activate
   - Vehicle
   - Sit
+  - Destructable
   layers:
   - Default
   - TransparentFX
