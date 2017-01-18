@@ -26,7 +26,7 @@ public class NetworkPlayer : NetworkBehaviour
         health = GetComponent<NetworkHealth>();
 		Options opt = GameObject.Find ("Options").GetComponent<Options> ();
 		if (!String.Equals(opt.name, "")) {
-			gameObject.name = opt.name;
+			gameObject.name = opt.nameOfPlayer;
 		} else {
 			gameObject.name ="Player";
 		}

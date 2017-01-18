@@ -67,12 +67,16 @@ public static class DataPool
         }
     }
 
-    public static void LoadPlayer(int ID)
+    public static bool LoadPlayer(string name)
     {
-        if (!PlayerList.ContainsKey(ID.ToString()))
+        if (!PlayerList.ContainsKey(name))
         {
-            PlayerData tmp = PlayerData.Load(ID);
+            PlayerData tmp = PlayerData.Load(name);
             PlayerList.Add(tmp.id.ToString(), tmp);
+            return true;
+        }
+        else {
+            return false;
         }
     }
 

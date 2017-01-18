@@ -252,14 +252,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 436482, guid: 0baa54d05c00c6e4a988e5c9b4edd120, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.904
-      objectReference: {fileID: 0}
-    - target: {fileID: 436482, guid: 0baa54d05c00c6e4a988e5c9b4edd120, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0baa54d05c00c6e4a988e5c9b4edd120, type: 2}
   m_IsPrefabParent: 0
@@ -6118,7 +6110,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 132640048}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5199999
+  m_Size: 0.52
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9102,8 +9094,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1628961409}
   m_HandleRect: {fileID: 1628961408}
   m_Direction: 0
-  m_Value: 0.45
-  m_Size: 0.9999996
+  m_Value: 0.0625
+  m_Size: 0.9999997
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -5,25 +5,32 @@ using UnityEngine.Networking;
 public class onLoad :MonoBehaviour {
 	// Use this for initialization
 	void Start(){
-		ClientScene.AddPlayer (0);
+		//ClientScene.AddPlayer (0);
 
         //Create Item
         ItemData i1 = new ItemData(1,20,2,50);
         i1.Save();
 
         //Create Player
-        PlayerData p1 = new PlayerData(1, "ROB", 100, 1);
-        p1.Save();
+        
 
         //Load Item and Player into Dictionary
         DataPool.LoadItem(1);
-        DataPool.LoadPlayer(1);
 
-        //Get Player
         PlayerData px = null;
-        DataPool.PlayerList.TryGetValue("1", out px);
-        //Get Playername
-        Debug.Log(px.id+": "+px.name+", "+px.xp+", "+px.attribute);
+        if (DataPool.PlayerList.TryGetValue("1", out px))
+        {
+            DataPool.LoadPlayer(GameObject.Find("Options").GetComponent<Options>().nameOfPlayer);
+            Debug.Log("Load: "+px.id + ": " + px.nameOfPlayer + ", " + px.xp + ", " + px.attribute + ", " + (px.headAmor + px.bodyAmor + px.legAmor));
+            px.LoadToPlayer();
+            //GameObject.Find(GameObject.Find("Options").GetComponent<Options>().name).GetComponent<>();
+        }
+        else {
+            PlayerData p1 = new PlayerData(1, GameObject.Find("Options").GetComponent<Options>().nameOfPlayer, 0, 0);
+            p1.Save();
+            Debug.Log("Create: "+p1.id + ": " + p1.nameOfPlayer + ", " + p1.xp + ", " + p1.attribute + ", " + (p1.headAmor + p1.bodyAmor + p1.legAmor)+"%");
+            p1.LoadToPlayer();
+        }
 
         //Create Object
         Object o1 = new Object(1, GameObject.Find("Barrel").transform, GameObject.Find("Barrel").gameObject.name);

@@ -40,7 +40,7 @@ public class NetworkConnect : MonoBehaviour {
 
 
 	public void PlayerNameA(){
-		GameObject.Find ("Options").GetComponent<Options> ().name = PlayerName.text;
+		GameObject.Find ("Options").GetComponent<Options> ().nameOfPlayer = PlayerName.text;
 	}
 
 	public void WeaponSelect(){

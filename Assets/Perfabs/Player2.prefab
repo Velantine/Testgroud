@@ -1018,6 +1018,7 @@ GameObject:
   - component: {fileID: 11464462}
   - component: {fileID: 11456428}
   - component: {fileID: 11430492}
+  - component: {fileID: 114619721912049096}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -2982,7 +2983,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148596}
   m_LocalRotation: {x: 0.000000081460335, y: -2.1175824e-22, z: -1.7249897e-29, w: 1}
-  m_LocalPosition: {x: -2.1684043e-19, y: -1.4651141e-23, z: 8.9928065e-17}
+  m_LocalPosition: {x: -2.1684043e-19, y: -0, z: 0.904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403700}
@@ -8533,3 +8534,20 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 139582}
   m_IsPrefabParent: 1
+--- !u!114 &114619721912049096
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769976d365aa9f04e8e10b716d1408cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  xp: 0
+  attribute: 0
+  headAmor: 0
+  bodyAmor: 0
+  legAmor: 0

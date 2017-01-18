@@ -19,11 +19,10 @@ public class NetworkHealth : NetworkBehaviour
 	public Text infoMessageText;
 
 
-
     //TODO: [Server]
-	public void GetShot(int damage)
+    public void GetShot(int damage)
     {
-        Health -= damage;
+        Health -= (damage*((100-gameObject.GetComponent<PlayerInfo>().amor())/100));
         RpcUpdateHealth(Health);
     }
 	//TODO: [Server]

@@ -17,7 +17,7 @@ public class Options : MonoBehaviour {
     public bool mute;
 
 	public AudioMixer master;
-    public string name;
+    public string nameOfPlayer;
     public int weapon;
     public GameObject[] weapons;
 

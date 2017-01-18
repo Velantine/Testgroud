@@ -126,7 +126,7 @@ MonoBehaviour:
   musicVolume: -69.1
   mute: 0
   master: {fileID: 24100000, guid: 692f2b05951324442b044dbb7468c866, type: 2}
-  name: 
+  nameOfPlayer: Player
   weapon: 0
   weapons:
   - {fileID: 111486, guid: 69914191eb19f4b48bb117c7bb53e44f, type: 2}
