@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <Options xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SoundVolume>-16.1760979</SoundVolume>
-  <MusicVolume>-19.0578022</MusicVolume>
-  <Mute>true</Mute>
+  <SoundVolume>0</SoundVolume>
+  <MusicVolume>-20</MusicVolume>
+  <Mute>false</Mute>
 </Options>
