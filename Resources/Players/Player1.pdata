@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<PlayerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>1</Id>
+  <Name>Player1</Name>
+  <XP>0</XP>
+  <Attribute>0</Attribute>
+  <Head_Amor>1</Head_Amor>
+  <Body_Amor>3</Body_Amor>
+  <Leg_Amor>1</Leg_Amor>
+</PlayerData>
